@@ -654,16 +654,16 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                          los movimientos del majestuoso pero peligroso rival que ten&iacute;as en frente. \
                          Notaste un peque&ntilde;o patr&oacute;n en sus movimientos, y decidiste intentar una locura para tumbarlo de una vez por todas.</p>\n\
                          <p>Antes de intentar propinarte un fuerte golpe, siempre intentaba coger la suficiente altura para caer en picado a por ti. \
-                            Así que, no tuviste otra idea si no que subir con &eacute;l. Si consegu&iacute;as tumbarlo en su punto m&aacute;s alto, estabas seguro de que \
+                            AsÃ­ que, no tuviste otra idea si no que subir con &eacute;l. Si consegu&iacute;as tumbarlo en su punto m&aacute;s alto, estabas seguro de que \
                             no podr&iacute;a sobrevivir a la ca&iacute;da, el problema es que tus probabilidades de salir ileso tampoco parec&iacute;an estar a tu favor. \
                             \
             \
             <p><center><img src='media/img/DragonMug.png'></center></p>\
-            As&iacute; lo decidiste, y as&iacute; lo hiciste. El poderoso Grimm comenz&oacute; a alzar su vuelo, y con un r&aacute;pido movimiento conseguiste clavar la guada&ntilde;a en su espalda para alzarte con él. \
+            As&iacute; lo decidiste, y as&iacute; lo hiciste. El poderoso Grimm comenz&oacute; a alzar su vuelo, y con un r&aacute;pido movimiento conseguiste clavar la guada&ntilde;a en su espalda para alzarte con Ã©l. \
             El semidrag&oacute;n comenz&oacute; a vociferar mientras daba vueltas sobre su propio eje para tirarte de su lomo. A duras penas consegu&iacute;as aguantar, como si de una escalada en los Alpes \
             se tratara, clavabas tu guada&ntilde;a cada vez un poco m&acute;s arriba, hasta que conseguiste llegar a la zona de su cuello.\
             <p>Una vez all&iacute;, agarraste tu mano libre a uno de los huesos que sobresal&iacute;an de sus alas para propinarle un fuerte golpe en la zona baja del pescuezo. \
-               Sin embargo… &iexcl;tu guada&ntilde;a rebot&oacute;! No pod&iacute;as creer que precisamente aquella zona vital estuviera tan bien protegida por aquellos fastidiosos huesos que usaba de armadura. \
+               Sin embargoâ€¦ &iexcl;tu guada&ntilde;a rebot&oacute;! No pod&iacute;as creer que precisamente aquella zona vital estuviera tan bien protegida por aquellos fastidiosos huesos que usaba de armadura. \
                El tiempo era m&iacute;nimo, si el Grimm segu&iacute;a ascendiendo, te quedar&iacute;as sin ox&iacute;geno y probablemente te desmayar&iacute;as, deb&iacute;as de idear algo para tumbarlo lo antes posible, a esas alturas saltar ya no era una opci&oacute;n. \
                <p>Casi con la rapidez de un cazador profesional, r&aacute;pidamente tomaste otra decisi&oacute;n. \
                   La de cortar con tu guada&ntilde;a el ala sobre el que te hab&iacute;as apoyado con anterioridad. \
@@ -703,6 +703,9 @@ undum.game.qualities = {
     ),
     libro: new undum.OnOffQuality(
             "Libro sobre Grimms", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
+    ),
+    llave: new undum.OnOffQuality(
+        "Llave", { priority: "0002", group: 'objetos', onDisplay: "&#10003;" }
     )
 };
 
@@ -726,6 +729,7 @@ undum.game.init = function (character, system) {
     character.qualities.cazadormedio = 0;
     character.qualities.arma = 0;
     character.qualities.libro = 0;
+    character.qualities.llave = 0;
     character.qualities.armanueva = 0;
     system.setCharacterText("<p>Te encuentras en la academia.</p>");
 };
