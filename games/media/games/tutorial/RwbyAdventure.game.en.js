@@ -142,14 +142,25 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
               a aquella cocinera que alegremente volv&iacute;a a su trabajo. Ahora si, con el est&oacute;mago lleno, era momento de <a href='hub'>continuar con tu camino</a>.\
              </p>\
         \
-        </p>",
+        <p>Pero te da la sensación de hay algo y decides <a href='./mirar-detalladamente'>mirar detalladamente</a> la estancia intentando evitar a los ojos de la cocinera</p>\
+</p>",
             {
                 heading: "La cocina",
                 diplayOrder: 2,
-                tags: ["topic"]
+                tags: ["topic"],
+                    
+                    actions: {
+                    "mirar-detalladamente": function (character, system, to) {
+                        system.setQuality("llave", 1);
+                        system.setCharacterText(
+                                "<p>Encuentras una misteriosa llave, te preguntas para qué puerta será</p>");
+                    }                    
+                }            
             }
-
+                                         
     ),
+    
+    
 
     qualities: new undum.SimpleSituation(
             "<p>No sabes muy bien c&oacute;mo, pero acabas llegando a una enooooorme puerta,\
