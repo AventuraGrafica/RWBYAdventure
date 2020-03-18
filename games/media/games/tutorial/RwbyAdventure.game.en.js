@@ -27,100 +27,106 @@ undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
         /* The situations that the game can be in. Each has a unique ID. */
         undum.game.situations = {
         start: new undum.SimpleSituation(
-                "<p><h1>Recepcionista en el lobby:</h1>\
-        <img src='media/img/recepcionista.png' class='float_right'>\
-        <p>&iexcl; ENHORABUENA ! </p> <p> Has sido aceptado/a \
-        en la maravillosa y magistral academia de Beacon, &iexcl;justo como quer&iacute;as! \
-        Aqu&iacute; comenzar&aacute;s a entrenarte como un aut&eacute;ntico \
-        cazador o cazadora, siempre dispuesto a derrotar a los Grimms y echar una mano \
-        a quien lo necesite. </p>\
-        \
-        <p>&iquest;C&oacute;mo? &iquest;Qu&eacute; no sabes que es un <a href='./que-es-un-grimm'>Grimm</a>?\
-        &iexcl;Es el motivo por el que elegiste entrar aqu&iacute;!\
-        Esos bichos horrendos que se alimentan del odio y el miedo de los dem&aacute;s,\
-        ya sabes; el pelo negro, ojos rojos y armadura hecha de sus propios huesos.\
-        </p>\
-        \
-        <p class='transient'><a href='hub'>Continuar...</a></p>",
+            "<p><h1>Recepcionista en el lobby:</h1>\
+            <img src='media/img/recepcionista.png' class='float_right'>\
+            <p>&iexcl; ENHORABUENA ! </p> <p> Has sido aceptado/a \
+            en la maravillosa y magistral academia de Beacon, &iexcl;justo como quer&iacute;as! \
+            Aqu&iacute; comenzar&aacute;s a entrenarte como un aut&eacute;ntico \
+            cazador o cazadora, siempre dispuesto a derrotar a los Grimms y echar una mano \
+            a quien lo necesite. </p>\
+            \
+            <p>&iquest;C&oacute;mo? &iquest;Qu&eacute; no sabes que es un <a href='./que-es-un-grimm'>Grimm</a>?\
+            &iexcl;Es el motivo por el que elegiste entrar aqu&iacute;!\
+            Esos bichos horrendos que se alimentan del odio y el miedo de los dem&aacute;s,\
+            ya sabes; el pelo negro, ojos rojos y armadura hecha de sus propios huesos.\
+            </p>\
+            \
+            <p class='transient'><a href='hub'>Continuar...</a></p>",
         {
         actions: {
         'que-es-un-grimm': "<p> <h1>Grimms</h1>\
-                  <center><img src='media/img/yaguara.png'></center>\
-                  Los Grimm fueron creados originalmente por el Dios de la Oscuridad. \
-                  Son descritos como 'criaturas de destrucci&oacute;n' que carecen de un alma; por lo tanto, \
-                  no pueden usar Aura. Tambi&eacute;n se sienten\
-                  atra&iacute;dos por los sentimientos de negatividad, como la envidia, la tristeza,\
-                  la soledad, el odio, etc., que a menudo se congregan en la fuente de estas emociones.</p>\n\
-                  <p class='transient'><a href='hub'>Continuar...</a></p>"
+                <center><img src='media/img/yaguara.png'></center>\
+                Los Grimm fueron creados originalmente por el Dios de la Oscuridad. \
+                Son descritos como 'criaturas de destrucci&oacute;n' que carecen de un alma; por lo tanto, \
+                no pueden usar Aura. Tambi&eacute;n se sienten\
+                atra&iacute;dos por los sentimientos de negatividad, como la envidia, la tristeza,\
+                la soledad, el odio, etc., que a menudo se congregan en la fuente de estas emociones.</p>\n\
+                <p class='transient'><a href='hub'>Continuar...</a></p>"
         }
         }
 
         ),
-                dormitorio: new undum.SimpleSituation(
-                        "<p> Oh dios santo una puerta\
-    <p class='transient'><a href='puerta'>Intentar abrir la puerta</a>  || <a href='hub'>Darse la vuelta y explorar</a>\
-            </p>",
-                {
-                heading: "El dormitorio",
-                        diplayOrder: 1,
-                        tags: ["topic"],
-                        canChoose:
-                        function (character, system, to) {
-                        return character.qualities.arma == 0;
-                        }
-                }
+        dormitorio: new undum.SimpleSituation(
+                "<p> Eliges ir a visitar tu dormitorio, después de un \
+                largo viaje lo mejor es dejar el equipaje y descansar.\
+                Tras deambular por los diferentes pasillos, perderte\
+                varias veces y entrar a la habitación equivocada en\
+                alguna que otra ocasión, consigues llegar a la tuya.\
+                </p>",
+            {
+            heading: "El dormitorio",
+                    diplayOrder: 1,
+                    tags: ["topic"],
+				enter: function( character, system, from ) {
+					if( character.qualities.puertaabierta ) {
+						system.doLink( "abrir" );
+					} else {
+						system.write( "<p>Pero para tu sorpresa, la puerta se encuentra bloqueada aparentemente con llave.\
+                                                            </p>\
+                                                            <center><img src='media/img/puerta.jpg'></center>\
+                                                            <p class='transient'><a href='puerta'>Intentar abrir la puerta</a>  || <a href='hub'>Darse la vuelta y explorar</a>.</p>");
+					}
+				},
+                    canChoose:
+                    function (character, system, to) {
+                    return character.qualities.arma == 0;
+                    }
+            }
 
                 ),
-                "abrir": new undum.SimpleSituation(
-                        "<p class='transient'><a href='arma'>Puerta abierta</a>",
-                {
-                tags: ["puerta"],
-                        heading: "Abres la puerta (necesitas: llave de dormitorio)",
-                        displayOrder: 1,
-                        canChoose:
+        
+            "abrir": new undum.SimpleSituation(
+                "<p><center><img src='media/img/dormitorio.png'></center></p>\
+                <p>No es… lo que tenías en mente precisamente.\
+                Unas literas improvisadas de mala manera se alzan ante ti, con dificultades, pero se alzan.\
+                La primera está sujeta por varias cuerdas, y la segunda está separada de la inferior por unas\
+                cuantas pilas de libros a modo de soporte. Eso sí, al menos estaba medianamente limpia.\
+                Dejas tu equipaje, y te tumbas unos segundos en la cama que tiene una etiqueta con tu nombre,\
+                sin embargo notas algo duro e incómodo debajo.\
+                </p>\
+                <p class='transient'><a href='arma'>levantar las sabanas para ver que es</a>  || <a href='noarma'>ignorarlo y seguir explorando</a>\
+                </p>",
+            {
+                    tags: ["puerta"],
+                    heading: "Abres la puerta (necesitas: llave de dormitorio)",
+                    displayOrder: 1,
+                    enter: function (character, system, to) {
+                        system.setQuality("puertaabierta",1);
+                    },
+                    canChoose:
                         function (character, system, to) {
                         return character.qualities.llave == 1;
-                        }
-                }
-                ),
-                "vuelta": new undum.SimpleSituation(
-                        "<p>Me las piro vampiro</p>\n\
-            <p class='transient'><a href='hub'>Continuar...</a></p>",
-                {
-                tags: ["puerta"],
-                        heading: "Te vas de aqui pero vamos",
-                        displayOrder: 2,
-                }
-                ),
-//    dormitorioNo: new undum.SimpleSituation(
-//            "<p> Eliges ir a visitar tu dormitorio, después de un \
-//                largo viaje lo mejor es dejar el equipaje y descansar.\
-//                Tras deambular por los diferentes pasillos, perderte\
-//                varias veces y entrar a la habitación equivocada en\
-//                alguna que otra ocasión, consigues llegar a la tuya.\
-//                </p>\
-//                <p><center><img src='media/img/dormitorio.png'></center></p>\
-//                <p>No es… lo que tenías en mente precisamente.\
-//                Unas literas improvisadas de mala manera se alzan ante ti, con dificultades, pero se alzan.\
-//                La primera está sujeta por varias cuerdas, y la segunda está separada de la inferior por unas\
-//                cuantas pilas de libros a modo de soporte. Eso sí, al menos estaba medianamente limpia.\
-//                Dejas tu equipaje, y te tumbas unos segundos en la cama que tiene una etiqueta con tu nombre,\
-//                sin embargo notas algo duro e incómodo debajo.\
-//             </p>\
-//<p class='transient'><a href='arma'>levantar las sabanas para ver que es</a>  || <a href='noarma'>ignorarlo y seguir explorando</a>\
-//            </p>",
-//            {
-//                heading: "El dormitorio",
-//                diplayOrder: 1,
-//                tags: ["topic"],
-//            }
-//
-//                ),
+                    }
+            }
+            ),
+            "vuelta": new undum.SimpleSituation(
+                "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
+                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. \
+                </p>\
+                <p class='transient'><a href='hub'>Continuar...</a></p>",
+            {
+            tags: ["puerta"],
+                    heading: "Mejor irse por donde has venido.",
+                    displayOrder: 2,
+            }
+            ),
+
                 noarma: new undum.SimpleSituation(
                         "<p> Decides no darle importancia a aquel extra&ntilde;o bulto que se encontraba en tu cama, &iquest;y si era uno de esos Grimms?\
 La opci&oacute;n m&aacute;s sensata era salir corriendo, y as&iacute; lo haces, concretamente en direcci&oacute;n hacia...</br> <a href='hub'>Continuar...</a></p>"
 
                         ),
+                
                 arma: new undum.SimpleSituation(
                         "<p>Decides levantar las s&aacute;banas que yacen debajo tuya, \
          y para tu grata y enorme sorpresa, una especie de arma \
@@ -731,6 +737,9 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 llave: new undum.OnOffQuality(
                         "Llave", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
                 ),
+                puertaabierta: new undum.OnOffQuality(
+                        "Llave", {priority: "0002", group: 'progress', offDisplay: "&#10003;"}
+                ),
                 };
 // ---------------------------------------------------------------------------
         /* The qualities are displayed in groups in the character bar. This
@@ -753,5 +762,6 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 character.qualities.libro = 0;
                 character.qualities.llave = 0;
                 character.qualities.armanueva = 0;
+                character.qualities.puertaabierta = 0;
                 system.setCharacterText("<p>Te encuentras en la academia.</p>");
                 };
