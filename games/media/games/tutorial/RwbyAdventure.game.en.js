@@ -44,11 +44,11 @@ undum.game.situations = {
             <p class='transient'><a href='hub'>Continuar...</a></p>",
             {
                 exit: function (character, system, from) {
-                    system.write("<p> Pero lo primero es lo primero, ¿qué tal si te das una pequeña vuelta por la academia?\
+                    system.write("<p> Pero lo primero es lo primero, Ã‚Â¿quÃƒÂ© tal si te das una pequeÃƒÂ±a vuelta por la academia?\
                         Seguro que te viene de maravilla para no perderte luego.\
-                        ¡Cuando termines de explorar recuerda pasarte por el Hall Principal! \
-                        El mismísimo director en persona dará una primera charla sobre la formación de los equipos \
-                        y te asignará a tus primeros compañeros. </p>\
+                        Â¡Cuando termines de explorar recuerda pasarte por el Hall Principal! \
+                        El mismÃ­Â­simo director en persona darÃ¡Â¡ una primera charla sobre la formaciÃ³n de los equipos \
+                        y te asignará a tus primeros compaÃ±eros. </p>\
                         <p class='transient'><a href='hub'>Continuar...</a></p>"
                             )
                 },
@@ -60,7 +60,7 @@ undum.game.situations = {
                         no pueden usar Aura. Tambi&eacute;n se sienten\
                         atra&iacute;dos por los sentimientos de negatividad, como la envidia, la tristeza,\
                         la soledad, el odio, etc., que a menudo se congregan en la fuente de estas emociones.</p>\
-                        ¿Terrorífico verdad? ¡Por eso debes entrenarte! Para plantar cara a aquellos que osen poner en peligro a\
+                        Â¿TerrorÃ­Â­fico verdad? Â¡Por eso debes entrenarte! Para plantar cara a aquellos que osen poner en peligro a\
                         cualquier persona de nuestra sociedad.\
                         <p class='transient'><a href='hub'>Continuar...</a></p>",
 
@@ -78,11 +78,11 @@ undum.game.situations = {
                     if (character.qualities.puertaabierta) {
                         system.doLink("puertaabierta");
                     } else {
-                        system.write("<p> Eliges ir a visitar tu dormitorio, después de un \
+                        system.write("<p> Eliges ir a visitar tu dormitorio, despuÃ©s de un \
                             largo viaje lo mejor es dejar el equipaje y descansar.\
                             Tras deambular por los diferentes pasillos, perderte\
-                            varias veces y entrar a la habitación equivocada en\
-                            alguna que otra ocasión, consigues llegar a la tuya.\
+                            varias veces y entrar a la habitaciÃ³n equivocada en\
+                            alguna que otra ocasiÃ³n, consigues llegar a la tuya.\
                             </p>\
                             <p>Pero para tu sorpresa, la puerta se encuentra bloqueada aparentemente con llave,\
                             incluso el pomo de la puerta se ve algo deteriorado una vez te acercas.\
@@ -100,18 +100,18 @@ undum.game.situations = {
 
     "puertaabierta": new undum.SimpleSituation(
             "<p><center><img src='media/img/puertaabierta.png'></center></p>\
-            <p>Vuelves a tu habitación, piensas que quizás deberías de investigar un poco más antes de ir hacia el hall principal.\n\
+            <p>Vuelves a tu habitaciÃ³n, piensas que quizÃ¡s deberÃ­Â­as de investigar un poco mÃ¡s antes de ir hacia el hall principal.\n\
             <p class='transient'><a href='abrir'>Entrar al dormitorio...</a></p>"
             ),
 
     "abrir": new undum.SimpleSituation(
             "<p><center><img src='media/img/dormitorio.png'></center></p>\
-            <p>No es… lo que tenías en mente precisamente.\
+            <p>No es... lo que tenÃ­Â­as en mente precisamente.\
             Unas literas improvisadas de mala manera se alzan ante ti, con dificultades, pero se alzan.\
-            La primera está sujeta por varias cuerdas, y la segunda está separada de la inferior por unas\
-            cuantas pilas de libros a modo de soporte. Eso sí, al menos estaba medianamente limpia.\
+            La primera estÃ¡ sujeta por varias cuerdas, y la segunda estÃ¡ separada de la inferior por unas\
+            cuantas pilas de libros a modo de soporte. Eso sÃ­Â­, al menos estaba medianamente limpia.\
             Dejas tu equipaje, y te tumbas unos segundos en la cama que tiene una etiqueta con tu nombre,\
-            sin embargo notas algo duro e incómodo debajo.\
+            sin embargo notas algo duro e incÃ³modo debajo.\
             </p>\
             <p class='transient'><a href='arma'>levantar las sabanas para ver que es</a>  || <a href='noarma'>ignorarlo y seguir explorando</a>\
             </p>",
@@ -129,8 +129,8 @@ undum.game.situations = {
             }
     ),
     "vuelta": new undum.SimpleSituation(
-            "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
-                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. \
+            "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n abajo, asÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ que decides volver por donde has venido. \
+                Ya habrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡ otra ocasiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n en la que la puerta estÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© abierta, o quizÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s tengas lo que se suele necesitar para abrir una puerta. \
                 </p>\
                 <p class='transient'><a href='hub'>Continuar...</a></p>",
             {
@@ -158,7 +158,7 @@ undum.game.situations = {
             \
             <p>Se trataba de una compleja guada&ntilde;a capaz de doblarse sobre s&iacute; misma \
             para disparar distintos tipos de proyectiles. Sin duda tu abuelo sab&iacute;a cuidarte.\
-            </p>\
+            Ahora tambiÃƒÆ’Ã‚Â©n entendÃƒÆ’Ã‚Â­as por quÃƒÆ’Ã‚Â© la puerta de tu dormitorio se habÃƒÆ’Ã‚Â­a mantenido cerrada bajo llave.</p>\
             \
             <p class='transient'><a href='./conseguir-arma'>Guardar el arma y continuar</a></p>",
             {
@@ -172,7 +172,7 @@ undum.game.situations = {
                             explorando el lugar, con tu guada&ntilde;a doblada de \
                             la manera m&aacute;s compacta posible, \
                             ocult&aacute;ndola en la parte trasera de tus ropajes.\
-                            Al salir te cargas el pomo de la puerta, vaya forma de empezar el día.\
+                            Al salir te cargas el pomo de la puerta, vaya forma de empezar el dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a.\
                             <p class='transient'><a href='hub'>Continuar...</a></p></p>");
                     },
 
@@ -200,25 +200,50 @@ undum.game.situations = {
         distintos tipos de queso, bien tostada y gratinada por arriba.</p>\
         <p>En cuesti&oacute;n de unos segundos, aquella pobre quiche se encontraba siendo engullida casi sin masticar. \
         Amablemente, y en cuanto pudiste dejar la boca vac&iacute;a para hacerlo con educaci&oacute;n, diste las gracias\
-        a aquella cocinera que alegremente volv&iacute;a a su trabajo. Ahora si, con el est&oacute;mago lleno, era momento de <a href='hub'>continuar con tu camino</a>.\
+        a aquella cocinera que alegremente volv&iacute;a a su trabajo. Ahora si, con el est&oacute;mago lleno, era momento de continuar con tu camino.\
         </p>\
-        <p>Pero te da la sensación de hay algo y decides <a href='./mirar-detalladamente'>mirar detalladamente</a> la estancia intentando evitar a los ojos de la cocinera</p>\
+        <p>Sin embargo, un pequeÃƒÆ’Ã‚Â±o destello en la distancia llama tu atenciÃƒÆ’Ã‚Â³n. Ãƒâ€šÃ‚Â¿DeberÃƒÆ’Ã‚Â­as de <a href='mirardetalladamente'>mirar detalladamente</a> la estancia, o serÃƒÆ’Ã‚Â­a mejor <a href='hub'>salir a explorar de nuevo?</a></p>\
         </p>",
             {
                 heading: "La cocina",
                 diplayOrder: 2,
                 tags: ["topic"],
-                actions: {
-                    "mirar-detalladamente": function (character, system, to) {
-                        system.setQuality("llave", 1);
-                        system.setCharacterText(
-                                "<p>Encuentras una misteriosa llave, te preguntas para qué puerta será</p>");
-                    }
-                }
             }
 
     ),
-    
+
+    mirardetalladamente: new undum.SimpleSituation(
+            "<p>Decides echar un mejor vistazo a aquel objeto que relucÃƒÆ’Ã‚Â­a, cercano a la encimera central de la cocina. </br> Intentando esquivar la directa mirada de la cocinera, consigues acercarte sin\
+            llamar demasiado la atenciÃƒÆ’Ã‚Â³n, y visualizas una llave un tanto curiosa. Tan curiosa que... Ãƒâ€šÃ‚Â¿quizÃƒÆ’Ã‚Â¡s deberÃƒÆ’Ã‚Â­as robarla? No querÃƒÆ’Ã‚Â­as causar problemas nada mÃƒÆ’Ã‚Â¡s llegar pero...\
+            la verdad es que tu sentido de la investigaciÃƒÆ’Ã‚Â³n era una de tus cualidades que mÃƒÆ’Ã‚Â¡s puertas te habÃƒÆ’Ã‚Â­a abierto hasta el momento.</p>\
+            <p><center><img src='media/img/llave.jpg'></center></p>\
+            <p>Ãƒâ€šÃ‚Â¿DeberÃƒÆ’Ã‚Â­as <a href='cogerllave'>coger la llave y salir rÃƒÆ’Ã‚Â¡pidamente de allÃƒÆ’Ã‚Â­?</a> \
+            O por el contrario, <a href='hub'>volver directamente al pasillo y continuar tu camino.</a></p>",
+            {
+                actions: {
+                    "cogerllave": function (character, system, to) {
+                        system.setQuality("llave", 1);
+                        system.setCharacterText(
+                                "<p>Encuentras una misteriosa llave, te preguntas para quÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© puerta serÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡</p>");
+                        system.write("<p>Consideras que coger la llave es lo correcto, si bien tu intuiciÃƒÆ’Ã‚Â³n y curiosidad te habÃƒÆ’Ã‚Â­a abierto puertas, seguro que una llave te ayuda a abrir alguna mÃƒÆ’Ã‚Â¡s.\
+                            <p class='transient'><a href='hub'>Continuar...</a></p></p>");
+                    }
+                }
+            }
+    ),
+
+    cogerllave: new undum.SimpleSituation(
+            "<p>Consideras que coger la llave es lo correcto, si bien tu intuiciÃƒÆ’Ã‚Â³n y curiosidad te habÃƒÆ’Ã‚Â­a abierto puertas, seguro que una llave te ayuda a abrir alguna mÃƒÆ’Ã‚Â¡s.\
+                            <p class='transient'><a href='hub'>Continuar...</a></p></p>",
+            {
+                enter: function (character, system, to) {
+                    system.setQuality("llave", 1);
+                    system.setCharacterText(
+                            "<p>Encuentras una misteriosa llave, te preguntas para quÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© puerta serÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡</p>");
+                }
+            }
+    ),
+
     biblioteca: new undum.SimpleSituation(
             "<p>No sabes muy bien c&oacute;mo, pero acabas llegando a una enooooorme puerta,\
             que obviamente decides abrir pues tu curiosidad te sobrepasa.\
@@ -258,7 +283,7 @@ undum.game.situations = {
                 },
             }
     ),
-    
+
     "quality-types": new undum.SimpleSituation(
             "<p>\
         <br>Sin comerlo ni beberlo, aquella joven de pelo corto y oscuro se hab&iacute;a puesto a soltarte la\
@@ -703,16 +728,16 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                          los movimientos del majestuoso pero peligroso rival que ten&iacute;as en frente. \
                          Notaste un peque&ntilde;o patr&oacute;n en sus movimientos, y decidiste intentar una locura para tumbarlo de una vez por todas.</p>\n\
                          <p>Antes de intentar propinarte un fuerte golpe, siempre intentaba coger la suficiente altura para caer en picado a por ti. \
-                            AsÃ­ que, no tuviste otra idea si no que subir con &eacute;l. Si consegu&iacute;as tumbarlo en su punto m&aacute;s alto, estabas seguro de que \
+                            AsÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­ que, no tuviste otra idea si no que subir con &eacute;l. Si consegu&iacute;as tumbarlo en su punto m&aacute;s alto, estabas seguro de que \
                             no podr&iacute;a sobrevivir a la ca&iacute;da, el problema es que tus probabilidades de salir ileso tampoco parec&iacute;an estar a tu favor. \
                             \
             \
             <p><center><img src='media/img/DragonMug.png'></center></p>\
-            As&iacute; lo decidiste, y as&iacute; lo hiciste. El poderoso Grimm comenz&oacute; a alzar su vuelo, y con un r&aacute;pido movimiento conseguiste clavar la guada&ntilde;a en su espalda para alzarte con Ã©l. \
+            As&iacute; lo decidiste, y as&iacute; lo hiciste. El poderoso Grimm comenz&oacute; a alzar su vuelo, y con un r&aacute;pido movimiento conseguiste clavar la guada&ntilde;a en su espalda para alzarte con ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©l. \
             El semidrag&oacute;n comenz&oacute; a vociferar mientras daba vueltas sobre su propio eje para tirarte de su lomo. A duras penas consegu&iacute;as aguantar, como si de una escalada en los Alpes \
             se tratara, clavabas tu guada&ntilde;a cada vez un poco m&acute;s arriba, hasta que conseguiste llegar a la zona de su cuello.\
             <p>Una vez all&iacute;, agarraste tu mano libre a uno de los huesos que sobresal&iacute;an de sus alas para propinarle un fuerte golpe en la zona baja del pescuezo. \
-               Sin embargoâ€¦ &iexcl;tu guada&ntilde;a rebot&oacute;! No pod&iacute;as creer que precisamente aquella zona vital estuviera tan bien protegida por aquellos fastidiosos huesos que usaba de armadura. \
+               Sin embargoÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦ &iexcl;tu guada&ntilde;a rebot&oacute;! No pod&iacute;as creer que precisamente aquella zona vital estuviera tan bien protegida por aquellos fastidiosos huesos que usaba de armadura. \
                El tiempo era m&iacute;nimo, si el Grimm segu&iacute;a ascendiendo, te quedar&iacute;as sin ox&iacute;geno y probablemente te desmayar&iacute;as, deb&iacute;as de idear algo para tumbarlo lo antes posible, a esas alturas saltar ya no era una opci&oacute;n. \
                <p>Casi con la rapidez de un cazador profesional, r&aacute;pidamente tomaste otra decisi&oacute;n. \
                   La de cortar con tu guada&ntilde;a el ala sobre el que te hab&iacute;as apoyado con anterioridad. \
