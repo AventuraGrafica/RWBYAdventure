@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Sarabun&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Artifika&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Metamorphous&display=swap');
 
 body {
     background: #170804 url("../img/Fondo_1.jpg");
@@ -175,7 +176,7 @@ h1 {
     margin: 2.3em 0 1.1em 0;
     color: #210;
     text-align: center;
-    font-family: 'Artifika', serif;   /*AQUIIIIIIIIIIIIIIIIIII*/
+    font-family: 'Metamorphous', cursive;   /*AQUIIIIIIIIIIIIIIIIIII*/
 }
 h1:first-child {
     margin-top: 0;
