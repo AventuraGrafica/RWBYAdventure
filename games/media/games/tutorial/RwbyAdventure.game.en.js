@@ -8,121 +8,182 @@
  * but you can use anything that is guaranteed unique (a URL you own,
  * or a variation on your email address, for example). */
 undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
+        /* A string indicating what version of the game this is. Versions are
+         * used to control saved-games. If you change the content of a game,
+         * the saved games are unlikely to work. Changing this version number
+         * prevents Undum from trying to load the saved-game and crashing. */
+        undum.game.version = "1.0";
+        /* A variable that changes the fade out speed of the option text on
+         * a mobile. */
+        undum.game.mobileHide = 2000
 
-/* A string indicating what version of the game this is. Versions are
- * used to control saved-games. If you change the content of a game,
- * the saved games are unlikely to work. Changing this version number
- * prevents Undum from trying to load the saved-game and crashing. */
-undum.game.version = "1.0";
+        /* A variable that changes the options fade out speed. */
+        undum.game.fadeSpeed = 1500
 
-/* A variable that changes the fade out speed of the option text on
- * a mobile. */
-undum.game.mobileHide = 2000
+        /* A variable that changes the slide up speed after clicking on an
+         * option. */
+        undum.game.slideUpSpeed = 500
 
-/* A variable that changes the options fade out speed. */
-undum.game.fadeSpeed = 1500
-
-/* A variable that changes the slide up speed after clicking on an
- * option. */
-undum.game.slideUpSpeed = 500
-
-/* The situations that the game can be in. Each has a unique ID. */
-undum.game.situations = {
-    start: new undum.SimpleSituation(
+        /* The situations that the game can be in. Each has a unique ID. */
+        undum.game.situations = {
+        start: new undum.SimpleSituation(
             "<p><h1>Recepcionista en el lobby:</h1>\
-        <img src='media/img/recepcionista.png' class='float_right'>\
-        <p>&iexcl; ENHORABUENA ! </p> <p> Has sido aceptado/a \
-        en la maravillosa y magistral academia de Beacon, &iexcl;justo como quer&iacute;as! \
-        Aqu&iacute; comenzar&aacute;s a entrenarte como un aut&eacute;ntico \
-        cazador o cazadora, siempre dispuesto a derrotar a los Grimms y echar una mano \
-        a quien lo necesite. </p>\
-        \
-        <p>&iquest;C&oacute;mo? &iquest;Qu&eacute; no sabes que es un <a href='./que-es-un-grimm'>Grimm</a>?\
-        &iexcl;Es el motivo por el que elegiste entrar aqu&iacute;!\
-        Esos bichos horrendos que se alimentan del odio y el miedo de los dem&aacute;s,\
-        ya sabes; el pelo negro, ojos rojos y armadura hecha de sus propios huesos.\
-        </p>\
-        \
-        <p class='transient'><a href='hub'>Continuar...</a></p>",
+            <img src='media/img/recepcionista.png' class='float_right'>\
+            <p>&iexcl; ENHORABUENA ! </p> <p> Has sido aceptado/a \
+            en la maravillosa y magistral academia de Beacon, &iexcl;justo como quer&iacute;as! \
+            Aqu&iacute; comenzar&aacute;s a entrenarte como un aut&eacute;ntico \
+            cazador o cazadora, siempre dispuesto a derrotar a los Grimms y echar una mano \
+            a quien lo necesite. </p>\
+            \
+            <p>&iquest;C&oacute;mo? &iquest;Qu&eacute; no sabes que es un <a href='./que-es-un-grimm'>Grimm</a>?\
+            &iexcl;Es el motivo por el que elegiste entrar aqu&iacute;!\
+            Esos bichos horrendos que se alimentan del odio y el miedo de los dem&aacute;s,\
+            ya sabes; el pelo negro, ojos rojos y armadura hecha de sus propios huesos.\
+            </p>\
+            \
+            <p class='transient'><a href='hub'>Continuar...</a></p>",
+        {
+        exit: function( character, system, from ) {
+            system.write("<p> Pero lo primero es lo primero, ¿qué tal si te das una pequeña vuelta por la academia?\
+                        Seguro que te viene de maravilla para no perderte luego.\
+                        ¡Cuando termines de explorar recuerda pasarte por el Hall Principal! \
+                        El mismísimo director en persona dará una primera charla sobre la formación de los equipos \
+                        y te asignará a tus primeros compañeros. </p>\
+                        <p class='transient'><a href='hub'>Continuar...</a></p>"
+                    )
+        },
+        actions: {
+        'que-es-un-grimm': "<p> <h1>Grimms</h1>\
+                <center><img src='media/img/yaguara.png'></center>\
+                Los Grimm fueron creados originalmente por el Dios de la Oscuridad. \
+                Son descritos como 'criaturas de destrucci&oacute;n' que carecen de un alma; por lo tanto, \
+                no pueden usar Aura. Tambi&eacute;n se sienten\
+                atra&iacute;dos por los sentimientos de negatividad, como la envidia, la tristeza,\
+                la soledad, el odio, etc., que a menudo se congregan en la fuente de estas emociones.</p>\
+                ¿Terrorífico verdad? ¡Por eso debes entrenarte! Para plantar cara a aquellos que osen poner en peligro a\
+                cualquier persona de nuestra sociedad.\
+                <p class='transient'><a href='hub'>Continuar...</a></p>",
+            
+        },
+        }
+
+        ),
+        dormitorio: new undum.SimpleSituation(
+                "<p class='transient'><a href='puerta'>Intentar abrir la puerta</a>  || <a href='hub'>Darse la vuelta y explorar</a>.</p>",
             {
-                actions: {
-                    'que-es-un-grimm': "<p> <h1>Grimms</h1>\
-                  <center><img src='media/img/yaguara.png'></center>\
-                  Los Grimm fueron creados originalmente por el Dios de la Oscuridad. \
-                  Son descritos como 'criaturas de destrucci&oacute;n' que carecen de un alma; por lo tanto, \
-                  no pueden usar Aura. Tambi&eacute;n se sienten\
-                  atra&iacute;dos por los sentimientos de negatividad, como la envidia, la tristeza,\
-                  la soledad, el odio, etc., que a menudo se congregan en la fuente de estas emociones.</p>"
-                }
+            heading: "El dormitorio",
+                    diplayOrder: 1,
+                    tags: ["topic"],
+				enter: function( character, system, from ) {
+					if( character.qualities.puertaabierta ) {
+						system.doLink( "puertaabierta" );
+					} else {
+						system.write( "<p> Eliges ir a visitar tu dormitorio, después de un \
+                                                    largo viaje lo mejor es dejar el equipaje y descansar.\
+                                                    Tras deambular por los diferentes pasillos, perderte\
+                                                    varias veces y entrar a la habitación equivocada en\
+                                                    alguna que otra ocasión, consigues llegar a la tuya.\
+                                                    </p>\
+                                                    <p>Pero para tu sorpresa, la puerta se encuentra bloqueada aparentemente con llave,\
+                                                    incluso el pomo de la puerta se ve algo deteriorado una vez te acercas.\
+                                                    </p>\
+                                                    <p><center><img src='media/img/puerta.jpg'></center></p>");
+					}
+				},
+                    canChoose:
+                    function (character, system, to) {
+                    return character.qualities.arma == 0;
+                    }
             }
 
-    ),
+                ),
+        
+        "puertaabierta": new undum.SimpleSituation(
+                "<p><center><img src='media/img/puertaabierta.png'></center></p>\
+                <p>Vuelves a tu habitación, piensas que quizás deberías de investigar un poco más antes de ir hacia el hall principal.\n\
+                <p class='transient'><a href='abrir'>Entrar al dormitorio...</a></p>"
+            ),
+        
+            "abrir": new undum.SimpleSituation(
+                "<p><center><img src='media/img/dormitorio.png'></center></p>\
+                <p>No es… lo que tenías en mente precisamente.\
+                Unas literas improvisadas de mala manera se alzan ante ti, con dificultades, pero se alzan.\
+                La primera está sujeta por varias cuerdas, y la segunda está separada de la inferior por unas\
+                cuantas pilas de libros a modo de soporte. Eso sí, al menos estaba medianamente limpia.\
+                Dejas tu equipaje, y te tumbas unos segundos en la cama que tiene una etiqueta con tu nombre,\
+                sin embargo notas algo duro e incómodo debajo.\
+                </p>\
+                <p class='transient'><a href='arma'>levantar las sabanas para ver que es</a>  || <a href='noarma'>ignorarlo y seguir explorando</a>\
+                </p>",
+            {
+                    tags: ["puerta"],
+                    heading: "Abres la puerta (necesitas: llave de dormitorio)",
+                    displayOrder: 1,
+                    enter: function (character, system, to) {
+                        system.setQuality("puertaabierta",1);
+                    },
+                    canChoose:
+                        function (character, system, to) {
+                        return character.qualities.llave == 1;
+                    }
+            }
+            ),
+            "vuelta": new undum.SimpleSituation(
+                "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
+                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. \
+                </p>\
+                <p class='transient'><a href='hub'>Continuar...</a></p>",
+            {
+            tags: ["puerta"],
+                    heading: "Mejor irse por donde has venido.",
+                    displayOrder: 2,
+            }
+            ),
 
-    // NB: The 'hub' situation which is the main list of topics, is
-    // defined wholly in the HTML file, and doesn't have an entry in
-    // the game.situations dictionary in this file.
-
-    // For variety, here we define a situation using the top-level
-    // Situation type. This is a neat approach to generate text by
-    // looking it up in the HTML document. For static text that makes
-    // more sense than writing it longhand.
-    situations: new undum.Situation({
-        enter: function (character, system, from) {
-            system.write($("#s_situations").html());
-        },
-        tags: ["topic"],
-        id: "dorm",
-        optionText: "El Dormitorio",
-        displayOrder: 1
-    }),
-
-    noarma: new undum.SimpleSituation(
-            "<p> Decides no darle importancia a aquel extra&ntilde;o bulto que se encontraba en tu cama, &iquest;y si era uno de esos Grimms?\
+                noarma: new undum.SimpleSituation(
+                        "<p> Decides no darle importancia a aquel extra&ntilde;o bulto que se encontraba en tu cama, &iquest;y si era uno de esos Grimms?\
 La opci&oacute;n m&aacute;s sensata era salir corriendo, y as&iacute; lo haces, concretamente en direcci&oacute;n hacia...</br> <a href='hub'>Continuar...</a></p>"
 
-            ),
-    
-    arma: new undum.SimpleSituation(
-            "<p>Decides levantar las s&aacute;banas que yacen debajo tuya, \
-         y para tu grata y enorme sorpresa, una especie de arma \
-         se encontraba ah&iacute; escondida. Con una peque&ntilde;ita nota adherida a su mango.\
-         <center><img src='media/img/arma.png'></center></p>\
-         \
-        <p style=color:gray;><i> 'Espero que te sirva para limpiar tu camino de injusticias, \
-        y para traer la paz que tanto necesitamos. Tu abuelo que te quiere y cuida, \
-        desde siempre y para siempre.' </i></p>\
-        \
-        <p>Se trataba de una compleja guada&ntilde;a capaz de doblarse sobre s&iacute; misma \
-        para disparar distintos tipos de proyectiles. Sin duda tu abuelo sab&iacute;a cuidarte.\
-        </p>\
-        \
-        <p class='transient'>\
-        <a href='./conseguir-arma'>Guardar el arma</a> y\
-        <a href='./continuar-arma'>continuar</a> </p>\
-        \
-        <p>",
-            {
+                        ),
+                
+                arma: new undum.SimpleSituation(
+                        "<p>Decides levantar las s&aacute;banas que yacen debajo tuya, \
+                        y para tu grata y enorme sorpresa, una especie de arma \
+                        se encontraba ah&iacute; escondida. Con una peque&ntilde;ita nota adherida a su mango.\
+                        <center><img src='media/img/arma.png'></center></p>\
+                        \
+                        <p style=color:gray;><i> 'Espero que te sirva para limpiar tu camino de injusticias, \
+                        y para traer la paz que tanto necesitamos. Tu abuelo que te quiere y cuida, \
+                        desde siempre y para siempre.' </i></p>\
+                        \
+                        <p>Se trataba de una compleja guada&ntilde;a capaz de doblarse sobre s&iacute; misma \
+                        para disparar distintos tipos de proyectiles. Sin duda tu abuelo sab&iacute;a cuidarte.\
+                        </p>\
+                        \
+                        <p class='transient'><a href='./conseguir-arma'>Guardar el arma y continuar</a></p>",
+                {
                 actions: {
-                    "conseguir-arma": function (character, system, to) {
-                        system.setQuality("arma", 1);
+                "conseguir-arma": function (character, system, to) {
+                system.setQuality("arma", 1);
                         system.setCharacterText(
                                 "<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p>");
-                    },
-                    "continuar-arma": "<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
+                        system.write("<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
                                     as&iacute; que decides seguir \
                                     explorando el lugar, con tu guada&ntilde;a doblada de \
                                     la manera m&aacute;s compacta posible, \
                                     ocult&aacute;ndola en la parte trasera de tus ropajes.\
-                                    <a href='hub'>Continuar...</a></p>"
+                                    Al salir te cargas el pomo de la puerta, vaya forma de empezar el día.\
+                                    <p class='transient'><a href='hub'>Continuar...</a></p></p>");
                 },
-                exit: function (character, system, to) {
-                    system.setQuality("estudiante", 1);
-                }
-            }
-    ),
 
-    links: new undum.SimpleSituation(
-            "<p> Deambulando por los pasillos, un delicioso y apetitoso olor llega a tus fosas nasales.\
+                },
+                        exit: function (character, system, to) {
+                        system.setQuality("estudiante", 1);
+                        }
+                }
+                ),
+                cocina: new undum.SimpleSituation(
+                        "<p> Deambulando por los pasillos, un delicioso y apetitoso olor llega a tus fosas nasales.\
 Tu est&oacute;mago comienza a rugir, y recuerdas que llevas por lo menos veinte minutos sin llevarte nada al est&oacute;mago. Eso est&aacute; claro que no son condiciones para trabajar. \
 Bueno, o lo que se supone que vayas a hacer. \
 Siguiendo aquel rastro del mismo modo que un tigre persigue a su presa, llegas a una sencilla pero amplia habitaci&oacute;n donde se encontraba la cocina de la academia. \
@@ -142,28 +203,24 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
               a aquella cocinera que alegremente volv&iacute;a a su trabajo. Ahora si, con el est&oacute;mago lleno, era momento de <a href='hub'>continuar con tu camino</a>.\
              </p>\
         \
-        <p>Pero te da la sensaci�n de hay algo y decides <a href='./mirar-detalladamente'>mirar detalladamente</a> la estancia intentando evitar a los ojos de la cocinera</p>\
+        <p>Pero te da la sensación de hay algo y decides <a href='./mirar-detalladamente'>mirar detalladamente</a> la estancia intentando evitar a los ojos de la cocinera</p>\
 </p>",
-            {
+                {
                 heading: "La cocina",
-                diplayOrder: 2,
-                tags: ["topic"],
-                    
-                    actions: {
-                    "mirar-detalladamente": function (character, system, to) {
+                        diplayOrder: 2,
+                        tags: ["topic"],
+                        actions: {
+                        "mirar-detalladamente": function (character, system, to) {
                         system.setQuality("llave", 1);
-                        system.setCharacterText(
-                                "<p>Encuentras una misteriosa llave, te preguntas para qu� puerta ser�</p>");
-                    }                    
-                }            
-            }
-                                         
-    ),
-    
-    
+                                system.setCharacterText(
+                                        "<p>Encuentras una misteriosa llave, te preguntas para qué puerta será</p>");
+                        }
+                        }
+                }
 
-    qualities: new undum.SimpleSituation(
-            "<p>No sabes muy bien c&oacute;mo, pero acabas llegando a una enooooorme puerta,\
+                ),
+                biblioteca: new undum.SimpleSituation(
+                        "<p>No sabes muy bien c&oacute;mo, pero acabas llegando a una enooooorme puerta,\
          que obviamente decides abrir pues tu curiosidad te sobrepasa.\
          <p><center><img src='media/img/biblio.png'></center></p>\
         Ante ti, se muestra una enorme sala llena de alt&iacute;simas estanter&iacute;as\
@@ -187,23 +244,22 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
         <p> </p>\
         <p>Tras tu decisi&oacute;n decides <a href='hub'>Continuar con la aventura</a></p>\
         </p>",
-            {
+                {
                 heading: "La Biblioteca",
-                tags: ["topic"],
-                displayOrder: 3,
-                actions: {
-                    "conseguir-libro": function (character, system, to) {
+                        tags: ["topic"],
+                        displayOrder: 3,
+                        actions: {
+                        "conseguir-libro": function (character, system, to) {
                         system.setQuality("libro", 1);
-                        system.setCharacterText(
-                                "<p>&iexcl;Ahora que has cometido una ilegalidad, sal por patas de ah&iacute;\
+                                system.setCharacterText(
+                                        "<p>&iexcl;Ahora que has cometido una ilegalidad, sal por patas de ah&iacute;\
                                 antes de que te pillen! El Hall principal es el sitio mas seguro.</p>");
-                    }
-                },
-               
-            }
-    ),
-    "quality-types": new undum.SimpleSituation(
-            "<p>\
+                        }
+                        },
+                }
+                ),
+                "quality-types": new undum.SimpleSituation(
+                        "<p>\
         <br>Sin comerlo ni beberlo, aquella joven de pelo corto y oscuro se hab&iacute;a puesto a soltarte la\
         chapa de tu vida, lo &uacute;nico que sacaste en claro es que se llamaba Ruby y que, como\
         pudiste comprobar, socializar no era su fuerte.\
@@ -253,10 +309,9 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
         <p>Ahora estaba en tus manos, &iquest;Deber&iacute;as\
         <a href='character-text'>ir a la misi&oacute;n</a> o por el contrario\
         <a href='rechazas-mision'>rechazar ir a la misi&oacute;n para comenzar tu entrenamiento en pareja?</a>.\<p>",
-    ),
-    
-    "character-text": new undum.SimpleSituation(
-            "<h1>Misi&oacute;n</h1>\
+                        ),
+                "character-text": new undum.SimpleSituation(
+                        "<h1>Misi&oacute;n</h1>\
         <p>Decidiste ir a aquella misi&oacute;n urgente tal como te hab&iacute;an pedido.\
         Para ti, el cumplir con tu deber como cazador as&iacute; como la experiencia adquirida con aquella\
         misi&oacute;n estaban muy por encima de el forjar ning&uacute;n tipo de relaci&oacute;n, y m&aacute;s con una persona\
@@ -296,15 +351,15 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
                      demasiado piadoso contigo. Pero, &iquest;cu&aacute;l ser&iacute;a la mejor de las opciones?</p></br>\
         <p class='transient'>\
         <a href='eleccion'>Realiza con cuidado tu elecci&oacute;n</a></p>\n",
-            {
+                {
                 enter: function (character, system, to) {
-                   system.setCharacterText(
-                                "<p>Has salido de expedici&oacute;n a la misi&oacute;n</p>");
-                    },
-            }
-    ),
-    progress: new undum.SimpleSituation(
-            "<p><center><img src='media/img/pasillo.png'></center>\
+                system.setCharacterText(
+                        "<p>Has salido de expedici&oacute;n a la misi&oacute;n</p>");
+                },
+                }
+                ),
+                progress: new undum.SimpleSituation(
+                        "<p><center><img src='media/img/pasillo.png'></center>\
         A ra&iacute;z de seguir unos pasillos m&aacute;s grandes y amplios que los normales, \
         y decorados algo exc&eacute;ntricos, desembocas en lo que parece ser la entrada \
         a un gran aula.\
@@ -321,21 +376,19 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
         \
         <a href='discurso'>Continuar...</a> \
         </p>",
-            {
+                {
                 tags: ["topic"],
-                heading: "El Hall Principal",
-                displayOrder: 4,
-            }
-    ),
-
-    discurso: new undum.Situation({
-        enter: function (character, system, from) {
-            system.write($("#s_discurso").html());
-        }
-    }),
-
-    "atacar": new undum.SimpleSituation(
-            "<p> <p> <h1>Decides atacar</h1> \
+                        heading: "El Hall Principal",
+                        displayOrder: 4,
+                }
+                ),
+                discurso: new undum.Situation({
+                enter: function (character, system, from) {
+                system.write($("#s_discurso").html());
+                }
+                }),
+                "atacar": new undum.SimpleSituation(
+                        "<p> <p> <h1>Decides atacar</h1> \
              \
              <p>Das gracias por haber llevado contigo a Crescent Rose, el arma que tu abuelo \
                 te di&oacute; para ayudarte en tu nueva vida. R&aacute;pidamente la despliegas, y esa gran guada&ntilde;a \
@@ -386,19 +439,18 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
                    <p><center><img src='media/img/espada.png'></center></p>\
             <p>Quer&iacute;as llev&aacute;rtela, pero solo podr&iacute;as cargar con un arma si no quer&iacute;as morir de agotamiento en tu camino de vuelta al punto de extracci&oacute;n.</p> \
             <p class='transient'><a href='equipar-arma'>&iquest;Deseas equipar tu nueva arma y desechar la que posees?</a> o <a href='no-equipar-arma'>Mantienes el arma que tu abuelo regal&oacute;, aunque parece algo m&aacute;s endeble.</a></p></p>",
-            {
+                {
                 tags: ["eleccion"],
-                heading: "Atacas al monstruo (necesitas: Crescent Rose)",
-                displayOrder: 1,
-                canChoose:
+                        heading: "Atacas al monstruo (necesitas: Crescent Rose)",
+                        displayOrder: 1,
+                        canChoose:
                         function (character, system, to) {
-                            return character.qualities.arma == 1;
+                        return character.qualities.arma == 1;
                         }
-            }
-    ),
-
-    "ahuyentar": new undum.SimpleSituation(
-            "<p>Ahora incluso te alegras de ser un poquito ilegal de vez en cuando.\
+                }
+                ),
+                "ahuyentar": new undum.SimpleSituation(
+                        "<p>Ahora incluso te alegras de ser un poquito ilegal de vez en cuando.\
 R&aacute;pidamente sacas el libro de la mochila y corres lo m&aacute;s raudo y veloz que puedes en direcci&oacute;n al bosque, intentando despistar de toda manera posible a aquella bestia que ahora intentaba darte caza.\
 Una vez parece que lo has perdido de vista, te ocultas entre las enormes ra&iacute;ces de un &aacute;rbol de respetable tama&ntilde;o que all&iacute; se alzaba.\
 <p><center><img src='media/img/bosque.png'></center></p>\
@@ -437,19 +489,18 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
          <center><img src='media/img/espada.png'></center></p>\
          Quer&iacute;as llev&aacute;rtela, pero solo podr&iacute;as cargar con un arma si no quer&iacute;as morir de agotamiento en tu camino de vuelta al punto de extracci&oacute;n.</p>\
     <p class='transient'><a href='equipar-arma'>&iquest;Deseas equipar tu nueva arma y desechar la que posees?</a> o <a href='no-equipar-arma'>Mantienes el arma que tu abuelo regal&oacute;, aunque parece algo m&aacute;s endeble.</a></p></p>",
-           {
+                {
                 tags: ["eleccion"],
-                heading: "Ahuyentas al monstruo (necesitas: Libro de los Grimm)",
-                displayOrder: 2,
-                canChoose:
+                        heading: "Ahuyentas al monstruo (necesitas: Libro de los Grimm)",
+                        displayOrder: 2,
+                        canChoose:
                         function (character, system, to) {
-                            return character.qualities.libro == 1;
+                        return character.qualities.libro == 1;
                         }
-            }
-    ),
-
-    "gritar": new undum.SimpleSituation(
-            "<p>\
+                }
+                ),
+                "gritar": new undum.SimpleSituation(
+                        "<p>\
         Te quedas completamente bloqueado y ni siquiera sabes que hacer. \
         Sin duda no era buena idea haber venido a la misi&oacute;n, no ten&iacute;as realmente mucha idea sobre Grimms, &iexcl;ni siquiera llevabas un arma encima! \
         Pero en qu&eacute; estabas pensando.\
@@ -473,55 +524,50 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
            Haberla dejado tirada quiz&aacute;s no fue la mejor de las opciones, adem&aacute;s, ya no tendr&iacute;as si quiera posibilidad de arreglarlo. Este era el peor de los futuros que jam&aacutes podr&iacute;as haber imaginado, pero al menos segu&iacute;as con vida.</p>\
            <center><img src='media/img/fin3.png'></center> \
         <p><center><a href='./ascenso'> &iexcl;ESTE NO ES TU LUGAR, FUERA DE LA ACEDEMIA! </a></center></p> </p>",
-            {
+                {
                 tags: ["eleccion"],
-                heading: "Gritas atemorizado",
-                displayOrder: 3,
-                actions: {
-                    "ascenso": function (character, system, to) {
+                        heading: "Gritas atemorizado",
+                        displayOrder: 3,
+                        actions: {
+                        "ascenso": function (character, system, to) {
                         system.setQuality("estudiante", 0);
-                        system.setQuality("arma", 0);
-                        system.setQuality("libro", 0);
-                        system.setQuality("armanueva", 0);
-                        system.setCharacterText(
-                                "<p>&iexclTOMA LAS DECISIONES CORRECTAS Y EXPLORA!</p>");
-                    }
-                },
-            }
-    ),
-    
-    "no-equipar-arma": new undum.SimpleSituation(
-            "<h1>No equipar el Arma</h1> \
+                                system.setQuality("arma", 0);
+                                system.setQuality("libro", 0);
+                                system.setQuality("armanueva", 0);
+                                system.setCharacterText(
+                                        "<p>&iexclTOMA LAS DECISIONES CORRECTAS Y EXPLORA!</p>");
+                        }
+                        },
+                }
+                ),
+                "no-equipar-arma": new undum.SimpleSituation(
+                        "<h1>No equipar el Arma</h1> \
              <p>No puedes por nada del mundo deshacerte del arma que tu abuelo te ha dado, de hecho, ni te lo piensas. \
                 No solo te ha dado tu primera victoria contra un Grimm real, y uno bastante grande y feroz. \
                 Sino que adem&aacute;s tiene demasiado valor sentimental para ti, as&iacute; que, r&aacute;pidamente cierras el cofre. \
                 <p class='transient'><a href='punto-extraccion'>Salir de la cueva en direcci&oacute;n al punto de extracci&oacute;n.</a></p>\</p>"
-            ),
-
-    "equipar-arma": new undum.SimpleSituation(
-            "<h1>Equipar Arma</h1>\
+                        ),
+                "equipar-arma": new undum.SimpleSituation(
+                        "<h1>Equipar Arma</h1>\
         <p>No puedes resistirte a los encantos y los ojitos que el nuevo arma te hac&iacute;a. \
            Era fuerte, resplandeciente, parec&iacute;a efectiva y adem&aacute;s, aquellos engranajes parec&iacute;an encarnar un misterio que te apetec&iacute;a investigar y resolver. \
         </p>\
         <p class='transient'><a href='punto-extraccion'>Salir de la cueva en direcci&oacute;n al punto de extracci&oacute;n.</a></p>\
         \
         ",
-    {
+                {
 
                 enter: function (character, system, to) {
-                    system.setQuality("armanueva", 1);
-                        
-                    },
-                exit: function (character, system, to) {
-                        system.setQuality("arma", 0);
-                        system.setQuality("libro", 0);
-                    },
+                system.setQuality("armanueva", 1);
                 },
-            
-            ),
-
-    "punto-extraccion": new undum.SimpleSituation(
-            "<p>Tras unas horas de vuelta, consigues llegar al punto de extracci&oacute;n. \
+                        exit: function (character, system, to) {
+                        system.setQuality("arma", 0);
+                                system.setQuality("libro", 0);
+                        },
+                },
+                        ),
+                "punto-extraccion": new undum.SimpleSituation(
+                        "<p>Tras unas horas de vuelta, consigues llegar al punto de extracci&oacute;n. \
                 Env&iacute;as una peque&ntilde;a se&ntilde;al desde el dispositivo localizador que todo estudiante de cazador pose&iacute;a, y vuelves de vuelta a la academia en aquella extra&ntilde;a nave. \
                 Los pilotos te congratulan, te sientas y casi no te lo crees. \
                 La bestia hab&iacute; sido derrotada, una flagrante arma nueva estaba en tu posesi&oacute;n, y estabas seguro de que la experiencia conseguida te ayudar&iacute; a escalar m&aacute;s r&aacute;pidamente los distintos niveles de cazador para llegar lo antes posible al m&aacute;ximo rango y graduarte. \
@@ -534,31 +580,28 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 Haberla dejado tirada quiz&aacute;s no fue la mejor de las opciones, sin embargo, ahora ten&iacute;s otras cosas de las que preocuparte, como tu preparaci&oacute;n para las misiones de segundo grado a las que te tocar&iacute; enfrentarte a partir de ahora.</p>\
              <p><center><img src='media/img/castphoto.png'></center></p>\
             <center><a href='./ascenso'> &iexcl;SUERTE EN TU CAMINO CAZADOR ! </a></center></p>",
-      {
+                {
                 actions: {
-                    "ascenso": function (character, system, to) {
-                        system.setQuality("cazadormedio", 1);
+                "ascenso": function (character, system, to) {
+                system.setQuality("cazadormedio", 1);
                         system.setQuality("estudiante", 0);
                         system.setCharacterText(
                                 "<p>&iexclENHORABUENA!</p>");
-                    }
+                }
                 },
-               
-            }
-            ),
-
-    "rechazas-mision": new undum.SimpleSituation(
-            "<h1>Rechazar ir a la misi&oacute;n para empezar tu entrenamiento en pareja en la academia</h1>\
+                }
+                ),
+                "rechazas-mision": new undum.SimpleSituation(
+                        "<h1>Rechazar ir a la misi&oacute;n para empezar tu entrenamiento en pareja en la academia</h1>\
              <p>Sinceramente, te sientes de todo menos preparado para ir a emprender una misi&oacute;n urgente. \
                 A&uacute;n no has recibido tu entrenamiento, de hecho, ni siquiera hab&iacute;as empezado y te acababan de asignar a tu compa&ntilde;ra. \
                 Quiz&aacute;s no era la compa&ntilde;era perfecta, pero s&iacute; que era quien te iba a acompa&ntilde;ar durante un largo periodo de tiempo, y tampoco te parec&iacute;a buena idea dejarla tirada. \
                 Tu lugar era estar en la academia como estudiante que eres, y siendo as&iacute; rechazas definitivamente el ir a la misi&oacute;n.</p> \
              <p>El cazador que hab&iacute;a acudido en tu b&uacute;squeda lo entiende, y procede a buscar a otro que sea capaz de encargarse de una misi&oacute;n como esa, un peque&ntilde;o atisbo de decepci&oacute;n pod&iacute;a intuirse en su forma de contestarte</p>\
              <p class='transient'><a href='siguiente'>Al d&iacute;a siguiente</a></p></p>"
-            ),
-
-    "siguiente": new undum.SimpleSituation(
-            "<p>Ahora s&iacute;, tu real y primer d&iacute;a en la academia estaba por comenzar. \
+                        ),
+                "siguiente": new undum.SimpleSituation(
+                        "<p>Ahora s&iacute;, tu real y primer d&iacute;a en la academia estaba por comenzar. \
                 Saludaste a Ruby nada m&aacute;s despertar, ambos hab&iacute;ais pasado una noche algo tenebrosa con miedo a que aquellas literas mal colocadas se os pudieran estampar en la frente en cualquier momento, pero al menos eso os di&oacute; algo de lo que hablar durante esa ma&ntilde;ana y sobre lo que re&iacute;ros un buen rato. \
                 La hiperactividad de Ruby segu&iacute;a siendo ciertamente llamativa, pero eso tambi&eacute;n hac&iacute;a que tu d&iacute;a se llenase de algo de energ&iacute;a. \
                 Al poco de despertar, ella misma se encarg&oacute; de hacer el desayuno de ambos, d&aacute;ndote una grata sorpresa con unas tortitas que ten&iacute;an una pinta maravillosa. \
@@ -583,11 +626,9 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                         Ahora bien, la decisi&oacute;n es tuya.'</i></p></br>\
               <p class='transient'><a href='te-quedas'>&iquest;Te quedas con tu pareja de batalla y futuro grupo?</a> O por el contrario prefieres <a href='asciendes'>&iquest;Ascender al siguiente rango de cazador?</a> </p>\
               </p>"
-            ),
-
-
-    "te-quedas":new undum.SimpleSituation(
-            "<p>Lo sientes con todo tu pesar pero debes rechazar la oferta. \
+                        ),
+                "te-quedas": new undum.SimpleSituation(
+                        "<p>Lo sientes con todo tu pesar pero debes rechazar la oferta. \
                 No eres capaz de dejar tirada a la persona que te ha acompa&ntilde;ado durante ya un mes, con quien te quedan otros tantos a&ntilde;os por delante, que llena tus ma&ntilde;anas y d&iacute;as de energ&iacute;a y momentos alegres, y con quien has llegado a semejante entendimiento en la batalla y entrenamientos. \
                 Sabes que est&aacute;s desperdiciando algo de tu potencial, pero &iquest;para qu&eacute; quieres ese potencial si no tienes con quien compartirlo ni a quien proteger? \
                 Si no fuera por ella, tu estancia aqu&iacute; podr&iacute;a haber sido infinitamente peor. \
@@ -605,19 +646,17 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 Ahora ya era tarde para preguntarse aquello el entrenamiento deb&iacute; continuar. \
                 <p><center><img src='media/img/castphoto.png'></center></p> \
                 <p><center><a href='./quedarse'> &iexcl;SUERTE EN TU CAMINO CAZADOR ! </a></center></p>",
-    {
+                {
                 actions: {
-                    "quedarse": function (character, system, to) {
-                        system.setCharacterText(
-                                "<p>&iexclENHORABUENA!</p>");
-                    }
+                "quedarse": function (character, system, to) {
+                system.setCharacterText(
+                        "<p>&iexclENHORABUENA!</p>");
+                }
                 },
-               
-            }
-                 ),
-
-    "asciendes": new undum.SimpleSituation(
-            "<p> Sabes perfectamente que aquella no es una oportunidad que puedas rechazar y que no se le concede a casi nadie. De hecho, dudabas que jam&aacute;s te la volvieran a ofrecer a ti. \
+                }
+                ),
+                "asciendes": new undum.SimpleSituation(
+                        "<p> Sabes perfectamente que aquella no es una oportunidad que puedas rechazar y que no se le concede a casi nadie. De hecho, dudabas que jam&aacute;s te la volvieran a ofrecer a ti. \
                  Entend&iacute;as que estaba bastante feo el hecho de dejar tirada a tu compa&ntilde;ra y futuro equipo, y que de hecho tras un mes entero de entrenamiento ser&iacute;a dif&iacute;cil que Ruby pudiera encontrar a otro cazador o cazadora con la que llegar a un nivel decente incluso como para avanzar de rango este a&ntilde;o, deber&iacute;a de amoldarse de nuevo al estilo de batalla de otra persona y casi empezar de cero.\
              Pero tu propia vida estaba delante de las dem&aacute;s, y eso es algo que siempre debes de tener en cuenta. \
              Sab&iacute;as que ya no podr&iacute;as volver a verla ni tan siquiera para despedirte de ella, as&iacute; que ahora no te quedaba otra que esperar a que te asignaran a quien ser&iacute;a el responsable de tu entrenamiento as&iacute; como tu nueva habitaci&oacute;n en el edificio de los cazadores de rango medio. \n\
@@ -631,21 +670,19 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                Ahora ya era tarde para preguntarse aquello el entrenamiento de tus nuevas cualidades y tu nuevo rango deb&iacute;a continuar.</p> \
             <p><center><img src='media/img/final.png'></center></p> \
                 <p><center><a href='./ascenso'> &iexcl;SUERTE EN TU CAMINO, SOLITARIO CAZADOR DE RANGO MEDIO ! </a></center></p>",
-            {
+                {
                 actions: {
-                    "ascenso": function (character, system, to) {
-                        system.setQuality("cazadormedio", 1);
+                "ascenso": function (character, system, to) {
+                system.setQuality("cazadormedio", 1);
                         system.setQuality("estudiante", 0);
                         system.setCharacterText(
                                 "<p>&iexclENHORABUENA!</p>");
-                    }
+                }
                 },
-               
-            }
-            ),
-
-    "opcion_ataque": new undum.SimpleSituation(
-            "<h1>Decides Atacar</h1> \
+                }
+                ),
+                "opcion_ataque": new undum.SimpleSituation(
+                        "<h1>Decides Atacar</h1> \
              \
              <p>Das gracias por haber llevado contigo a Crescent Rose, el arma que tu abuelo \
                 te di&oacute; para ayudarte en tu nueva vida. R&aacute;pidamente la despliegas, y esa gran guada&ntilde<a \
@@ -665,16 +702,16 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                          los movimientos del majestuoso pero peligroso rival que ten&iacute;as en frente. \
                          Notaste un peque&ntilde;o patr&oacute;n en sus movimientos, y decidiste intentar una locura para tumbarlo de una vez por todas.</p>\n\
                          <p>Antes de intentar propinarte un fuerte golpe, siempre intentaba coger la suficiente altura para caer en picado a por ti. \
-                            Así que, no tuviste otra idea si no que subir con &eacute;l. Si consegu&iacute;as tumbarlo en su punto m&aacute;s alto, estabas seguro de que \
+                            AsÃ­ que, no tuviste otra idea si no que subir con &eacute;l. Si consegu&iacute;as tumbarlo en su punto m&aacute;s alto, estabas seguro de que \
                             no podr&iacute;a sobrevivir a la ca&iacute;da, el problema es que tus probabilidades de salir ileso tampoco parec&iacute;an estar a tu favor. \
                             \
             \
             <p><center><img src='media/img/DragonMug.png'></center></p>\
-            As&iacute; lo decidiste, y as&iacute; lo hiciste. El poderoso Grimm comenz&oacute; a alzar su vuelo, y con un r&aacute;pido movimiento conseguiste clavar la guada&ntilde;a en su espalda para alzarte con él. \
+            As&iacute; lo decidiste, y as&iacute; lo hiciste. El poderoso Grimm comenz&oacute; a alzar su vuelo, y con un r&aacute;pido movimiento conseguiste clavar la guada&ntilde;a en su espalda para alzarte con Ã©l. \
             El semidrag&oacute;n comenz&oacute; a vociferar mientras daba vueltas sobre su propio eje para tirarte de su lomo. A duras penas consegu&iacute;as aguantar, como si de una escalada en los Alpes \
             se tratara, clavabas tu guada&ntilde;a cada vez un poco m&acute;s arriba, hasta que conseguiste llegar a la zona de su cuello.\
             <p>Una vez all&iacute;, agarraste tu mano libre a uno de los huesos que sobresal&iacute;an de sus alas para propinarle un fuerte golpe en la zona baja del pescuezo. \
-               Sin embargo… &iexcl;tu guada&ntilde;a rebot&oacute;! No pod&iacute;as creer que precisamente aquella zona vital estuviera tan bien protegida por aquellos fastidiosos huesos que usaba de armadura. \
+               Sin embargoâ€¦ &iexcl;tu guada&ntilde;a rebot&oacute;! No pod&iacute;as creer que precisamente aquella zona vital estuviera tan bien protegida por aquellos fastidiosos huesos que usaba de armadura. \
                El tiempo era m&iacute;nimo, si el Grimm segu&iacute;a ascendiendo, te quedar&iacute;as sin ox&iacute;geno y probablemente te desmayar&iacute;as, deb&iacute;as de idear algo para tumbarlo lo antes posible, a esas alturas saltar ya no era una opci&oacute;n. \
                <p>Casi con la rapidez de un cazador profesional, r&aacute;pidamente tomaste otra decisi&oacute;n. \
                   La de cortar con tu guada&ntilde;a el ala sobre el que te hab&iacute;as apoyado con anterioridad. \
@@ -687,60 +724,60 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                   Cuando ca&iacute;ste, lo hiciste cerca de una cueva en la que no hab&iacute;as reparado con anterioridad, no muy lejos del claro del bosque. \
                     </p>\
             </p>"
-            )
-};
-
+                        )
+                };
 // ---------------------------------------------------------------------------
-/* The Id of the starting situation. */
-undum.game.start = "start";
-
+        /* The Id of the starting situation. */
+        undum.game.start = "start";
 // ---------------------------------------------------------------------------
-/* Here we define all the qualities that our characters could
- * possess. We don't have to be exhaustive, but if we miss one out then
- * that quality will never show up in the character bar in the UI. */
-undum.game.qualities = {
+        /* Here we define all the qualities that our characters could
+         * possess. We don't have to be exhaustive, but if we miss one out then
+         * that quality will never show up in the character bar in the UI. */
+        undum.game.qualities = {
 
-    estudiante: new undum.OnOffQuality(
-            "Estudiante", {priority: "0002", group: 'progress', onDisplay: "&#10003;"}
-    ),
-        cazadormedio: new undum.OnOffQuality(
-            "Cazador de rango medio", {priority: "0002", group: 'progress', onDisplay: "&#10003;"}
-    ),
-    arma: new undum.OnOffQuality(
-            "Crescent Rose", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
-    ),
-    armanueva: new undum.OnOffQuality(
-            "Harbinger", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
-    ),
-    libro: new undum.OnOffQuality(
-            "Libro sobre Grimms", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
-    ),
-    llave: new undum.OnOffQuality(
-        "Llave", { priority: "0002", group: 'objetos', onDisplay: "&#10003;" }
-    )
-};
-
+        estudiante: new undum.OnOffQuality(
+                "Estudiante", {priority: "0002", group: 'progress', onDisplay: "&#10003;"}
+        ),
+                cazadormedio: new undum.OnOffQuality(
+                        "Cazador de rango medio", {priority: "0002", group: 'progress', onDisplay: "&#10003;"}
+                ),
+                arma: new undum.OnOffQuality(
+                        "Crescent Rose", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
+                ),
+                armanueva: new undum.OnOffQuality(
+                        "Harbinger", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
+                ),
+                libro: new undum.OnOffQuality(
+                        "Libro sobre Grimms", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
+                ),
+                llave: new undum.OnOffQuality(
+                        "Llave", {priority: "0002", group: 'objetos', onDisplay: "&#10003;"}
+                ),
+                puertaabierta: new undum.OnOffQuality(
+                        "Llave", {priority: "0002", group: 'progress', offDisplay: "&#10003;"}
+                ),
+                };
 // ---------------------------------------------------------------------------
-/* The qualities are displayed in groups in the character bar. This
- * determines the groups, their heading (which can be null for no
- * heading) and ordering. QualityDefinitions without a group appear at
- * the end. It is an error to have a quality definition belong to a
- * non-existent group. */
-undum.game.qualityGroups = {
-    stats: new undum.QualityGroup(null, {priority: "0001"}),
-    progress: new undum.QualityGroup('Progress', {priority: "0002"}),
-    objetos: new undum.QualityGroup('Objetos', {priority: "0002"}),
-};
-
+        /* The qualities are displayed in groups in the character bar. This
+         * determines the groups, their heading (which can be null for no
+         * heading) and ordering. QualityDefinitions without a group appear at
+         * the end. It is an error to have a quality definition belong to a
+         * non-existent group. */
+        undum.game.qualityGroups = {
+        stats: new undum.QualityGroup(null, {priority: "0001"}),
+                progress: new undum.QualityGroup('Progress', {priority: "0002"}),
+                objetos: new undum.QualityGroup('Objetos', {priority: "0002"}),
+                };
 // ---------------------------------------------------------------------------
-/* This function gets run before the game begins. It is normally used
- * to configure the character at the start of play. */
-undum.game.init = function (character, system) {
-    character.qualities.estudiante = 1;
-    character.qualities.cazadormedio = 0;
-    character.qualities.arma = 0;
-    character.qualities.libro = 0;
-    character.qualities.llave = 0;
-    character.qualities.armanueva = 0;
-    system.setCharacterText("<p>Te encuentras en la academia.</p>");
-};
+        /* This function gets run before the game begins. It is normally used
+         * to configure the character at the start of play. */
+        undum.game.init = function (character, system) {
+        character.qualities.estudiante = 1;
+                character.qualities.cazadormedio = 0;
+                character.qualities.arma = 0;
+                character.qualities.libro = 0;
+                character.qualities.llave = 0;
+                character.qualities.armanueva = 0;
+                character.qualities.puertaabierta = 0;
+                system.setCharacterText("<p>Te encuentras en la academia.</p>");
+                };

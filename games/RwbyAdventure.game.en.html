@@ -89,8 +89,10 @@
                 </h1>
                 <h2>Realizado por:</h2>
                 <h3>
-                    Juan Francisco Ru&iacute;z Rodr&iacute;guez
-                    <p>Alejandro Guti&eacute;rrez Guti&eacute;rrez</p>
+                    <center>Juan Francisco Ru&iacute;z Rodr&iacute;guez</center>
+                    <center><p>Alejandro Guti&eacute;rrez Guti&eacute;rrez</p></center>
+                    <center><p>Alberto Beteta Fern&aacute;ndez</p></center>
+                    <center><p>Rafael Ortega Chica</p></center>
                 </h3>
                 <!-- End of Game Title -->
 
@@ -154,28 +156,6 @@
          you want to load from your game code. See the
          tutorial.game.js file for details of how this is used. -->
     <div id="content_library">
-        <div id="s_situations">
-            <h1>El Dormitorio</h1>
-            <p>
-                Eliges ir a visitar tu dormitorio, después de un
-                largo viaje lo mejor es dejar el equipaje y descansar.
-                Tras deambular por los diferentes pasillos, perderte
-                varias veces y entrar a la habitación equivocada en
-                alguna que otra ocasión, consigues llegar a la tuya.
-                <center><img src='media/img/dormitorio.png'></center>
-            </p>
-            <p>
-                No es… lo que tenías en mente precisamente.
-                Unas literas improvisadas de mala manera se alzan ante ti, con dificultades, pero se alzan.
-                La primera está sujeta por varias cuerdas, y la segunda está separada de la inferior por unas
-                cuantas pilas de libros a modo de soporte. Eso sí, al menos estaba medianamente limpia.
-                Dejas tu equipaje, y te tumbas unos segundos en la cama que tiene una etiqueta con tu nombre,
-                sin embargo notas algo duro e incómodo debajo.
-            </p>
-            <p class='transient'>
-                <a href='arma'>levantar las sabanas para ver que es</a>  || <a href='noarma'>ignorarlo y seguir explorando</a>
-            </p>
-        </div>
 
         <div id="s_discurso">
             <p><center><img src='media/img/discurso.png'></center></p>
@@ -252,6 +232,12 @@
         </div>
 
         <div id="eleccion" class="situation" data-choices="#eleccion"
+             data-option-text="View Eleccion List">
+            <h1 class="transient">Decisiones</h1>
+            <p class="transient"> ¿ Que harás ? </p>
+        </div>
+        
+        <div id="puerta" class="situation" data-choices="#puerta"
              data-option-text="View Eleccion List">
             <h1 class="transient">Decisiones</h1>
             <p class="transient"> ¿ Que harás ? </p>
