@@ -173,7 +173,7 @@ La opci&oacute;n m&aacute;s sensata era salir corriendo, y as&iacute; lo haces, 
                                     la manera m&aacute;s compacta posible, \
                                     ocult&aacute;ndola en la parte trasera de tus ropajes.\
                                     Al salir te cargas el pomo de la puerta, vaya forma de empezar el día.\
-                                    <a href='hub'>Continuar...</a></p>");
+                                    <p class='transient'><a href='hub'>Continuar...</a></p></p>");
                 },
 
                 },
