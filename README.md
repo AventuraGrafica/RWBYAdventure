@@ -24,7 +24,7 @@ https://trello.com/b/oHt5ODNs/aventura-gr%C3%A1fica-20
  
   
   # Sprint 1 
-**Captura de pantalla de las HU que hemos decidido que formen parte del Sprint Backlog y descomposición en tareas.**
+  ## Captura de pantalla de las HU que hemos decidido que formen parte del Sprint Backlog y descomposición en tareas
 ![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/productBacklog_delSprint.JPG?raw=true) 
   
     
@@ -49,3 +49,13 @@ https://trello.com/b/oHt5ODNs/aventura-gr%C3%A1fica-20
 
 En general consideramos que hemos realizado correctamente nuestras tareas y nos hemos ido ayudando siempre que nos ha resultado necesario.
 Como mejora, si que es verdad que podría mejorar nuestra comunicación como equipo, no es mala, pero siempre se pueden mejorar las relaciones.
+
+### Captura final de Sprint Backlog y Sprint Planning	
+![enter image description here](https://github.com/RafaelOrtg/Prueba/blob/master/sprint1_Finalizado.JPG?raw=true)
+Decidimos utilizar el mismo tablero para el Sprint Backlog y el Sprint Planning ya que así era más fácil su uso en Trello.
+### Captura final Product Backlog
+![enter image description here](https://raw.githubusercontent.com/RafaelOrtg/Prueba/master/productBacklog_Finalizado.JPG)
+### Product Owner
+El product Owner durante este Sprint ha sido Alberto Beteta Fernández, aunque también ha estado haciendo la función de desarrollador.
+### Enlace tablero Trello de Sprint 1
+[Enlace al tablero del Sprint 1](https://trello.com/b/rKLXnqWB/sprint-1-aventura-gr%C3%A1fica)
