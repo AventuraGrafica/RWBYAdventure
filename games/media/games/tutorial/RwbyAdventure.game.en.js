@@ -43,6 +43,15 @@ undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
             \
             <p class='transient'><a href='hub'>Continuar...</a></p>",
         {
+        exit: function( character, system, from ) {
+            system.write("<p> Pero lo primero es lo primero, ¿qué tal si te das una pequeña vuelta por la academia?\
+                        Seguro que te viene de maravilla para no perderte luego.\
+                        ¡Cuando termines de explorar recuerda pasarte por el Hall Principal! \
+                        El mismísimo director en persona dará una primera charla sobre la formación de los equipos \
+                        y te asignará a tus primeros compañeros. </p>\
+                        <p class='transient'><a href='hub'>Continuar...</a></p>"
+                    )
+        },
         actions: {
         'que-es-un-grimm': "<p> <h1>Grimms</h1>\
                 <center><img src='media/img/yaguara.png'></center>\
@@ -50,31 +59,35 @@ undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
                 Son descritos como 'criaturas de destrucci&oacute;n' que carecen de un alma; por lo tanto, \
                 no pueden usar Aura. Tambi&eacute;n se sienten\
                 atra&iacute;dos por los sentimientos de negatividad, como la envidia, la tristeza,\
-                la soledad, el odio, etc., que a menudo se congregan en la fuente de estas emociones.</p>\n\
-                <p class='transient'><a href='hub'>Continuar...</a></p>"
-        }
+                la soledad, el odio, etc., que a menudo se congregan en la fuente de estas emociones.</p>\
+                ¿Terrorífico verdad? ¡Por eso debes entrenarte! Para plantar cara a aquellos que osen poner en peligro a\
+                cualquier persona de nuestra sociedad.\
+                <p class='transient'><a href='hub'>Continuar...</a></p>",
+            
+        },
         }
 
         ),
         dormitorio: new undum.SimpleSituation(
-                "<p> Eliges ir a visitar tu dormitorio, despu�s de un \
-                largo viaje lo mejor es dejar el equipaje y descansar.\
-                Tras deambular por los diferentes pasillos, perderte\
-                varias veces y entrar a la habitaci�n equivocada en\
-                alguna que otra ocasi�n, consigues llegar a la tuya.\
-                </p>",
+                "<p class='transient'><a href='puerta'>Intentar abrir la puerta</a>  || <a href='hub'>Darse la vuelta y explorar</a>.</p>",
             {
             heading: "El dormitorio",
                     diplayOrder: 1,
                     tags: ["topic"],
 				enter: function( character, system, from ) {
 					if( character.qualities.puertaabierta ) {
-						system.doLink( "abrir" );
+						system.doLink( "puertaabierta" );
 					} else {
-						system.write( "<p>Pero para tu sorpresa, la puerta se encuentra bloqueada aparentemente con llave.\
-                                                            </p>\
-                                                            <center><img src='media/img/puerta.jpg'></center>\
-                                                            <p class='transient'><a href='puerta'>Intentar abrir la puerta</a>  || <a href='hub'>Darse la vuelta y explorar</a>.</p>");
+						system.write( "<p> Eliges ir a visitar tu dormitorio, después de un \
+                                                    largo viaje lo mejor es dejar el equipaje y descansar.\
+                                                    Tras deambular por los diferentes pasillos, perderte\
+                                                    varias veces y entrar a la habitación equivocada en\
+                                                    alguna que otra ocasión, consigues llegar a la tuya.\
+                                                    </p>\
+                                                    <p>Pero para tu sorpresa, la puerta se encuentra bloqueada aparentemente con llave,\
+                                                    incluso el pomo de la puerta se ve algo deteriorado una vez te acercas.\
+                                                    </p>\
+                                                    <p><center><img src='media/img/puerta.jpg'></center></p>");
 					}
 				},
                     canChoose:
@@ -85,14 +98,20 @@ undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
 
                 ),
         
+        "puertaabierta": new undum.SimpleSituation(
+                "<p><center><img src='media/img/puertaabierta.png'></center></p>\
+                <p>Vuelves a tu habitación, piensas que quizás deberías de investigar un poco más antes de ir hacia el hall principal.\n\
+                <p class='transient'><a href='abrir'>Entrar al dormitorio...</a></p>"
+            ),
+        
             "abrir": new undum.SimpleSituation(
                 "<p><center><img src='media/img/dormitorio.png'></center></p>\
-                <p>No es� lo que ten�as en mente precisamente.\
+                <p>No es… lo que tenías en mente precisamente.\
                 Unas literas improvisadas de mala manera se alzan ante ti, con dificultades, pero se alzan.\
-                La primera est� sujeta por varias cuerdas, y la segunda est� separada de la inferior por unas\
-                cuantas pilas de libros a modo de soporte. Eso s�, al menos estaba medianamente limpia.\
+                La primera está sujeta por varias cuerdas, y la segunda está separada de la inferior por unas\
+                cuantas pilas de libros a modo de soporte. Eso sí, al menos estaba medianamente limpia.\
                 Dejas tu equipaje, y te tumbas unos segundos en la cama que tiene una etiqueta con tu nombre,\
-                sin embargo notas algo duro e inc�modo debajo.\
+                sin embargo notas algo duro e incómodo debajo.\
                 </p>\
                 <p class='transient'><a href='arma'>levantar las sabanas para ver que es</a>  || <a href='noarma'>ignorarlo y seguir explorando</a>\
                 </p>",
@@ -110,8 +129,8 @@ undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
             }
             ),
             "vuelta": new undum.SimpleSituation(
-                "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel port�n abajo, as� que decides volver por donde has venido. \
-                Ya habr� otra ocasi�n en la que la puerta est� abierta, o quiz�s tengas lo que se suele necesitar para abrir una puerta. \
+                "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
+                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. \
                 </p>\
                 <p class='transient'><a href='hub'>Continuar...</a></p>",
             {
@@ -129,37 +148,34 @@ La opci&oacute;n m&aacute;s sensata era salir corriendo, y as&iacute; lo haces, 
                 
                 arma: new undum.SimpleSituation(
                         "<p>Decides levantar las s&aacute;banas que yacen debajo tuya, \
-         y para tu grata y enorme sorpresa, una especie de arma \
-         se encontraba ah&iacute; escondida. Con una peque&ntilde;ita nota adherida a su mango.\
-         <center><img src='media/img/arma.png'></center></p>\
-         \
-        <p style=color:gray;><i> 'Espero que te sirva para limpiar tu camino de injusticias, \
-        y para traer la paz que tanto necesitamos. Tu abuelo que te quiere y cuida, \
-        desde siempre y para siempre.' </i></p>\
-        \
-        <p>Se trataba de una compleja guada&ntilde;a capaz de doblarse sobre s&iacute; misma \
-        para disparar distintos tipos de proyectiles. Sin duda tu abuelo sab&iacute;a cuidarte.\
-        </p>\
-        \
-        <p class='transient'>\
-        <a href='./conseguir-arma'>Guardar el arma</a> y\
-        <a href='./continuar-arma'>continuar</a> </p>\
-        \
-        <p>",
+                        y para tu grata y enorme sorpresa, una especie de arma \
+                        se encontraba ah&iacute; escondida. Con una peque&ntilde;ita nota adherida a su mango.\
+                        <center><img src='media/img/arma.png'></center></p>\
+                        \
+                        <p style=color:gray;><i> 'Espero que te sirva para limpiar tu camino de injusticias, \
+                        y para traer la paz que tanto necesitamos. Tu abuelo que te quiere y cuida, \
+                        desde siempre y para siempre.' </i></p>\
+                        \
+                        <p>Se trataba de una compleja guada&ntilde;a capaz de doblarse sobre s&iacute; misma \
+                        para disparar distintos tipos de proyectiles. Sin duda tu abuelo sab&iacute;a cuidarte.\
+                        </p>\
+                        \
+                        <p class='transient'><a href='./conseguir-arma'>Guardar el arma y continuar</a></p>",
                 {
                 actions: {
                 "conseguir-arma": function (character, system, to) {
                 system.setQuality("arma", 1);
                         system.setCharacterText(
                                 "<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p>");
-                },
-                        "continuar-arma": "<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
+                        system.write("<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
                                     as&iacute; que decides seguir \
                                     explorando el lugar, con tu guada&ntilde;a doblada de \
                                     la manera m&aacute;s compacta posible, \
                                     ocult&aacute;ndola en la parte trasera de tus ropajes.\
-                                    Al salir te cargas el pomo de la puerta, vaya forma de empezar el d�a.\
-                                    <a href='hub'>Continuar...</a></p>"
+                                    Al salir te cargas el pomo de la puerta, vaya forma de empezar el día.\
+                                    <a href='hub'>Continuar...</a></p>");
+                },
+
                 },
                         exit: function (character, system, to) {
                         system.setQuality("estudiante", 1);
@@ -187,7 +203,7 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
               a aquella cocinera que alegremente volv&iacute;a a su trabajo. Ahora si, con el est&oacute;mago lleno, era momento de <a href='hub'>continuar con tu camino</a>.\
              </p>\
         \
-        <p>Pero te da la sensaci�n de hay algo y decides <a href='./mirar-detalladamente'>mirar detalladamente</a> la estancia intentando evitar a los ojos de la cocinera</p>\
+        <p>Pero te da la sensación de hay algo y decides <a href='./mirar-detalladamente'>mirar detalladamente</a> la estancia intentando evitar a los ojos de la cocinera</p>\
 </p>",
                 {
                 heading: "La cocina",
@@ -197,7 +213,7 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
                         "mirar-detalladamente": function (character, system, to) {
                         system.setQuality("llave", 1);
                                 system.setCharacterText(
-                                        "<p>Encuentras una misteriosa llave, te preguntas para qu� puerta ser�</p>");
+                                        "<p>Encuentras una misteriosa llave, te preguntas para qué puerta será</p>");
                         }
                         }
                 }
@@ -686,16 +702,16 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                          los movimientos del majestuoso pero peligroso rival que ten&iacute;as en frente. \
                          Notaste un peque&ntilde;o patr&oacute;n en sus movimientos, y decidiste intentar una locura para tumbarlo de una vez por todas.</p>\n\
                          <p>Antes de intentar propinarte un fuerte golpe, siempre intentaba coger la suficiente altura para caer en picado a por ti. \
-                            Así que, no tuviste otra idea si no que subir con &eacute;l. Si consegu&iacute;as tumbarlo en su punto m&aacute;s alto, estabas seguro de que \
+                            AsÃ­ que, no tuviste otra idea si no que subir con &eacute;l. Si consegu&iacute;as tumbarlo en su punto m&aacute;s alto, estabas seguro de que \
                             no podr&iacute;a sobrevivir a la ca&iacute;da, el problema es que tus probabilidades de salir ileso tampoco parec&iacute;an estar a tu favor. \
                             \
             \
             <p><center><img src='media/img/DragonMug.png'></center></p>\
-            As&iacute; lo decidiste, y as&iacute; lo hiciste. El poderoso Grimm comenz&oacute; a alzar su vuelo, y con un r&aacute;pido movimiento conseguiste clavar la guada&ntilde;a en su espalda para alzarte con él. \
+            As&iacute; lo decidiste, y as&iacute; lo hiciste. El poderoso Grimm comenz&oacute; a alzar su vuelo, y con un r&aacute;pido movimiento conseguiste clavar la guada&ntilde;a en su espalda para alzarte con Ã©l. \
             El semidrag&oacute;n comenz&oacute; a vociferar mientras daba vueltas sobre su propio eje para tirarte de su lomo. A duras penas consegu&iacute;as aguantar, como si de una escalada en los Alpes \
             se tratara, clavabas tu guada&ntilde;a cada vez un poco m&acute;s arriba, hasta que conseguiste llegar a la zona de su cuello.\
             <p>Una vez all&iacute;, agarraste tu mano libre a uno de los huesos que sobresal&iacute;an de sus alas para propinarle un fuerte golpe en la zona baja del pescuezo. \
-               Sin embargo… &iexcl;tu guada&ntilde;a rebot&oacute;! No pod&iacute;as creer que precisamente aquella zona vital estuviera tan bien protegida por aquellos fastidiosos huesos que usaba de armadura. \
+               Sin embargoâ€¦ &iexcl;tu guada&ntilde;a rebot&oacute;! No pod&iacute;as creer que precisamente aquella zona vital estuviera tan bien protegida por aquellos fastidiosos huesos que usaba de armadura. \
                El tiempo era m&iacute;nimo, si el Grimm segu&iacute;a ascendiendo, te quedar&iacute;as sin ox&iacute;geno y probablemente te desmayar&iacute;as, deb&iacute;as de idear algo para tumbarlo lo antes posible, a esas alturas saltar ya no era una opci&oacute;n. \
                <p>Casi con la rapidez de un cazador profesional, r&aacute;pidamente tomaste otra decisi&oacute;n. \
                   La de cortar con tu guada&ntilde;a el ala sobre el que te hab&iacute;as apoyado con anterioridad. \
