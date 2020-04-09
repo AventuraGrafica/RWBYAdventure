@@ -286,6 +286,7 @@ undum.game.situations = {
                 actions: {
                     "conseguir-libro": function (character, system, to) {
                         system.setQuality("libro", 1);
+                        system.setQuality("puntuacion",character.qualities.puntuacion+1);
                         system.setCharacterText(
                                 "<p>&iexcl;Ahora que has cometido una ilegalidad, sal por patas de ah&iacute;\
                                 antes de que te pillen! El Hall principal es el sitio mas seguro.</p>");
