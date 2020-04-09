@@ -164,7 +164,10 @@ undum.game.situations = {
             {
                 actions: {
                     "conseguir-arma": function (character, system, to) {
-                        system.setQuality("arma", 1);
+                        system.doLink("conseguir-arma2");
+                    }                        
+              /**       system.setQuality("arma", 1);
+                        system.setQuality("puntuacion",character.qualities.puntuacion+1);
                         system.setCharacterText(
                                 "<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p>");
                         system.write("<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
@@ -174,17 +177,29 @@ undum.game.situations = {
                             ocult&aacute;ndola en la parte trasera de tus ropajes.\
                             Al salir te cargas el pomo de la puerta, vaya forma de empezar el d&iacute;a.\
                             <p class='transient'><a href='hub'>Continuar...</a></p></p>");
-                    },
-
+                    */
                 },
                 exit: function (character, system, to) {
                     system.setQuality("estudiante", 1);
+                    system.setQuality("arma",1),
+                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                    system.setCharacterText("<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p>");
                 }
             }
     ),
+    
+    "conseguir-arma2": new undum.SimpleSituation(                                 
+             "<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
+                        as&iacute; que decides seguir \
+                        explorando el lugar, con tu guada&ntilde;a doblada de \
+                        la manera m&aacute;s compacta posible, \
+                        ocult&aacute;ndola en la parte trasera de tus ropajes.\
+                        Al salir te cargas el pomo de la puerta, vaya forma de empezar el d&iacute;a.\
+                        <p class='transient'><a href='hub'>Continuar...</a></p></p>"
+        ),
 
     cocina: new undum.SimpleSituation(
-            "<p> Deambulando por los pasillos, un delicioso y apetitoso olor llega a tus fosas nasales.\
+        "<p> Deambulando por los pasillos, un delicioso y apetitoso olor llega a tus fosas nasales.\
         Tu est&oacute;mago comienza a rugir, y recuerdas que llevas por lo menos veinte minutos sin llevarte nada al est&oacute;mago. Eso est&aacute; claro que no son condiciones para trabajar. \
         Bueno, o lo que se supone que vayas a hacer. \
         Siguiendo aquel rastro del mismo modo que un tigre persigue a su presa, llegas a una sencilla pero amplia habitaci&oacute;n donde se encontraba la cocina de la academia. \
@@ -232,6 +247,7 @@ undum.game.situations = {
             {
                 enter: function (character, system, to) {
                     system.setQuality("llave", 1);
+                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
                     system.setCharacterText(
                             "<p>Encuentras una misteriosa llave, te preguntas para qu&eacute; puerta ser&aacute;</p>");
                 }
@@ -776,6 +792,10 @@ undum.game.qualities = {
     puertaabierta: new undum.OnOffQuality(
             "Has abierto la puerta del dormitorio", {priority: "0002", group: 'progress', onDisplay: "&#10003;"}
     ),
+    puntuacion: new undum.NumericQuality(
+            "Puntuacion", {priority: "0001", group:'progress'} 
+    ),
+    
 };
 // ---------------------------------------------------------------------------
 /* The qualities are displayed in groups in the character bar. This
@@ -799,5 +819,6 @@ undum.game.init = function (character, system) {
     character.qualities.llave = 0;
     character.qualities.armanueva = 0;
     character.qualities.puertaabierta = 0;
+    character.qualities.puntuacion = 0;
     system.setCharacterText("<p>Te encuentras en la academia.</p>");
 };
