@@ -130,7 +130,7 @@ undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
             ),
             "vuelta": new undum.SimpleSituation(
                 "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
-                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. \
+                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. <a href='ayuda'>AYUDA</a>\
                 </p>\
                 <p class='transient'><a href='hub'>Continuar...</a></p>",
             {
@@ -139,6 +139,31 @@ undum.game.id = "be1c95b9-cbc7-48c6-8e6a-89837aa9113e";
                     displayOrder: 2,
             }
             ),
+    
+    
+    /*PRUEBA DE AYUDA CON SITUACIONES*/
+    
+    
+    
+            ayuda: new undum.Situation(
+                    {
+                    enter: function( character, system, to ) {
+                        if(character.qualities.llave){
+                            system.setCharacterText("<p>Quiz&aacute; la llave que tienes sirva para la puerta</p>");
+                        }else{
+                            system.setCharacterText("<p>Me parece que el cocinero estuvo una temporada\
+                                                        durmiendo en esa habitaci&oacute;n. A lo mejor &eacute;l tiene\
+                                                        la llave </p>");
+                        }
+                        system.write("<p><p class='transient'><a href='hub'>Continuar...</a></p></p>")
+                      },             
+                    }
+            ),
+
+
+
+
+
 
                 noarma: new undum.SimpleSituation(
                         "<p> Decides no darle importancia a aquel extra&ntilde;o bulto que se encontraba en tu cama, &iquest;y si era uno de esos Grimms?\
@@ -215,9 +240,12 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
                                 system.setCharacterText(
                                         "<p>Encuentras una misteriosa llave, te preguntas para qué puerta será</p>");
                         }
-                        }
+                        },
+                    canChoose:
+                    function (character, system, to) {
+                    return character.qualities.llave == 0;
                 }
-
+                }
                 ),
                 biblioteca: new undum.SimpleSituation(
                         "<p>No sabes muy bien c&oacute;mo, pero acabas llegando a una enooooorme puerta,\
@@ -256,7 +284,11 @@ Casi te pod&iacute;as dar por satisfecho con tan solo aquella mezcla de fraganci
                                 antes de que te pillen! El Hall principal es el sitio mas seguro.</p>");
                         }
                         },
+                    canChoose:
+                    function (character, system, to) {
+                    return character.qualities.libro == 0;
                 }
+            }
                 ),
                 "quality-types": new undum.SimpleSituation(
                         "<p>\
