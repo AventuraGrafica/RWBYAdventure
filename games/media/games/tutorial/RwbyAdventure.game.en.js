@@ -165,8 +165,9 @@ undum.game.situations = {
                 actions: {
                     "conseguir-arma": function (character, system, to) {
                         system.setQuality("arma", 1);
+                        system.setQuality("armadefinitiva", 1)
                         system.setCharacterText(
-                                "<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p>");
+                                "<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p><p>&iexcl;Has ganado el trofeo Arma Definitiva!</p>");
                         system.write("<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
                             as&iacute; que decides seguir \
                             explorando el lugar, con tu guada&ntilde;a doblada de \
@@ -232,8 +233,9 @@ undum.game.situations = {
             {
                 enter: function (character, system, to) {
                     system.setQuality("llave", 1);
+                    system.setQuality("misteriosallave", 1);
                     system.setCharacterText(
-                            "<p>Encuentras una misteriosa llave, te preguntas para qu&eacute; puerta ser&aacute;</p>");
+                            "<p>Encuentras una misteriosa llave, te preguntas para qu&eacute; puerta ser&aacute;.</p><p>&iexcl;Has ganado el trofeo Llave Misteriosa!</p>");
                 }
             }
     ),
@@ -270,9 +272,10 @@ undum.game.situations = {
                 actions: {
                     "conseguir-libro": function (character, system, to) {
                         system.setQuality("libro", 1);
+                        system.setQuality("libronegro", 1)
                         system.setCharacterText(
                                 "<p>&iexcl;Ahora que has cometido una ilegalidad, sal por patas de ah&iacute;\
-                                antes de que te pillen! El Hall principal es el sitio mas seguro.</p>");
+                                antes de que te pillen! El Hall principal es el sitio mas seguro.</p><p>&iexcl;Has ganado el trofeo El Libro Negro!</p>");
                     }
                 },
             }
@@ -548,6 +551,11 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 tags: ["eleccion"],
                 heading: "Gritas atemorizado",
                 displayOrder: 3,
+                enter: function (character, system, from) {
+                    system.setQuality("perdedor", 1);
+                    system.setCharacterText(
+                                "<p>&iexclHas ganado el trofeo Perdedor!</p>");
+                },
                 actions: {
                     "ascenso": function (character, system, to) {
                         system.setQuality("estudiante", 0);
@@ -601,7 +609,13 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
              <p><center><img src='media/img/castphoto.png'></center></p>\
             <center><a href='./ascenso'> &iexcl;SUERTE EN TU CAMINO CAZADOR ! </a></center></p>",
             {
+                enter: function (character, system, from) {
+                    system.setQuality("heroesolitario", 1);
+                    system.setCharacterText(
+                                "<p>&iexcl;Has ganado el trofeo Heroe Solitario!</p>");
+                },
                 actions: {
+                
                     "ascenso": function (character, system, to) {
                         system.setQuality("cazadormedio", 1);
                         system.setQuality("estudiante", 0);
@@ -667,6 +681,11 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 <p><center><img src='media/img/castphoto.png'></center></p> \
                 <p><center><a href='./quedarse'> &iexcl;SUERTE EN TU CAMINO CAZADOR ! </a></center></p>",
             {
+                enter: function (character, system, to) {
+                    system.setQuality("companeros", 1);
+                    system.setCharacterText(
+                                "<p>&iexcl;Has ganado el trofeo Compa&ntilde;eros!</p>");
+                },
                 actions: {
                     "quedarse": function (character, system, to) {
                         system.setCharacterText(
@@ -691,7 +710,13 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
             <p><center><img src='media/img/final.png'></center></p> \
                 <p><center><a href='./ascenso'> &iexcl;SUERTE EN TU CAMINO, SOLITARIO CAZADOR DE RANGO MEDIO ! </a></center></p>",
             {
+                enter: function (character, system, from) {
+                    system.setQuality("heroesolitario", 1);
+                    system.setCharacterText(
+                                "<p>&iexcl;Has ganado el trofeo Heroe Solitario!</p>");
+                },
                 actions: {
+                
                     "ascenso": function (character, system, to) {
                         system.setQuality("cazadormedio", 1);
                         system.setQuality("estudiante", 0);
@@ -776,6 +801,24 @@ undum.game.qualities = {
     puertaabierta: new undum.OnOffQuality(
             "Has abierto la puerta del dormitorio", {priority: "0002", group: 'progress', onDisplay: "&#10003;"}
     ),
+    libronegro: new undum.OnOffQuality(
+            "El Libro Negro", {priority: "0001", group: 'trofeos', onDisplay: "&#10003;"}
+    ),
+    armadefinitiva: new undum.OnOffQuality(
+            "El Arma Definitiva", {priority: "0002", group: 'trofeos', onDisplay: "&#10003;"}
+    ),
+    misteriosallave: new undum.OnOffQuality(
+            "LLave Misteriosa", {priority: "0003", group: 'trofeos', onDisplay: "&#10003;"}
+    ),
+    heroesolitario: new undum.OnOffQuality(
+            "Heroe Solitario", {priority: "0005", group: 'trofeos', onDisplay: "&#10003;"}
+    ),
+    perdedor: new undum.OnOffQuality(
+            "Perdedor", {priority: "0006", group: 'trofeos', onDisplay: "&#10003;"}
+    ),
+    companeros: new undum.OnOffQuality(
+            "Compa&ntilde;eros", {priority: "0007", group: 'trofeos', onDisplay: "&#10003;"}
+    ),
 };
 // ---------------------------------------------------------------------------
 /* The qualities are displayed in groups in the character bar. This
@@ -787,6 +830,7 @@ undum.game.qualityGroups = {
     stats: new undum.QualityGroup(null, {priority: "0001"}),
     progress: new undum.QualityGroup('Progress', {priority: "0002"}),
     objetos: new undum.QualityGroup('Objetos', {priority: "0002"}),
+    trofeos: new undum.QualityGroup('Trofeos', {priority: "0003"}),
 };
 // ---------------------------------------------------------------------------
 /* This function gets run before the game begins. It is normally used
@@ -799,5 +843,11 @@ undum.game.init = function (character, system) {
     character.qualities.llave = 0;
     character.qualities.armanueva = 0;
     character.qualities.puertaabierta = 0;
+    character.qualities.libronegro = 0;
+    character.qualities.armadefinitiva = 0;
+    character.qualities.misteriosallave = 0;
+    character.qualities.heroesolitario = 0;
+    character.qualities.perdedor = 0;
+    character.qualities.companeros = 0;
     system.setCharacterText("<p>Te encuentras en la academia.</p>");
 };
