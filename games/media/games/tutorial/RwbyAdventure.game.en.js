@@ -182,7 +182,7 @@ undum.game.situations = {
                 exit: function (character, system, to) {
                     system.setQuality("estudiante", 1);
                     system.setQuality("arma",1),
-                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
                     system.setCharacterText("<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p>");
                 }
             }
@@ -247,7 +247,7 @@ undum.game.situations = {
             {
                 enter: function (character, system, to) {
                     system.setQuality("llave", 1);
-                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
                     system.setCharacterText(
                             "<p>Encuentras una misteriosa llave, te preguntas para qu&eacute; puerta ser&aacute;</p>");
                 }
@@ -277,8 +277,7 @@ undum.game.situations = {
             <p class='transient'><a href='./conseguir-libro'>Decides cogerlo, total, un libro es un libro</a> || \
             <a href='hub'>Mejor lo dejas, no te ha dado muy buena espina</a></p>\
             <p> </p>\
-            <p>Tras tu decisi&oacute;n decides <a href='hub'>Continuar con la aventura</a></p>\
-            </p>",
+            ",
             {
                 heading: "La Biblioteca",
                 tags: ["topic"],
@@ -286,14 +285,20 @@ undum.game.situations = {
                 actions: {
                     "conseguir-libro": function (character, system, to) {
                         system.setQuality("libro", 1);
-                        system.setQuality("puntuacion",character.qualities.puntuacion+1);
-                        system.setCharacterText(
-                                "<p>&iexcl;Ahora que has cometido una ilegalidad, sal por patas de ah&iacute;\
-                                antes de que te pillen! El Hall principal es el sitio mas seguro.</p>");
+                        system.setQuality("puntuacion",character.qualities.puntuacion+1);                                                    
+                        system.doLink("conseguir-libro2");
                     }
                 },
             }
     ),
+    
+    "conseguir-libro2" : new undum.SimpleSituation(
+            "<p>&iexcl;Ahora que has cometido una ilegalidad, sal por patas de ah&iacute;\
+            antes de que te pillen! El Hall principal es el sitio mas seguro.</p>\n\
+            <p>Tras tu decisi&oacute;n decides <a href='hub'>Continuar con la aventura</a></p>\
+                </p>"
+        ),
+    
 
     "quality-types": new undum.SimpleSituation(
             "<p>\
@@ -480,10 +485,11 @@ undum.game.situations = {
                 tags: ["eleccion"],
                 heading: "Atacas al monstruo (necesitas: Crescent Rose)",
                 displayOrder: 1,
-                canChoose:
-                        function (character, system, to) {
+                        
+                    canChoose:
+                        function (character, system, to) {                                                       
                             return character.qualities.arma == 1;
-                        }
+                        }                
             }
     ),
     "ahuyentar": new undum.SimpleSituation(
@@ -531,7 +537,7 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 heading: "Ahuyentas al monstruo (necesitas: Libro de los Grimm)",
                 displayOrder: 2,
                 canChoose:
-                        function (character, system, to) {
+                        function (character, system, to) {                            
                             return character.qualities.libro == 1;
                         }
             }
@@ -571,6 +577,7 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                         system.setQuality("arma", 0);
                         system.setQuality("libro", 0);
                         system.setQuality("armanueva", 0);
+                        system.setQuality("puntuacion", 0);
                         system.setCharacterText(
                                 "<p>&iexclTOMA LAS DECISIONES CORRECTAS Y EXPLORA!</p>");
                     }
@@ -582,7 +589,12 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
              <p>No puedes por nada del mundo deshacerte del arma que tu abuelo te ha dado, de hecho, ni te lo piensas. \
                 No solo te ha dado tu primera victoria contra un Grimm real, y uno bastante grande y feroz. \
                 Sino que adem&aacute;s tiene demasiado valor sentimental para ti, as&iacute; que, r&aacute;pidamente cierras el cofre. \
-                <p class='transient'><a href='punto-extraccion'>Salir de la cueva en direcci&oacute;n al punto de extracci&oacute;n.</a></p>\</p>"
+                <p class='transient'><a href='punto-extraccion'>Salir de la cueva en direcci&oacute;n al punto de extracci&oacute;n.</a></p>\</p>",
+    {
+        enter: function (character, system, to){
+            system.setQuality("puntuacion",character.qualities.puntuacion+1);         
+        },        
+    },                        
             ),
     "equipar-arma": new undum.SimpleSituation(
             "<h1>Equipar Arma</h1>\
@@ -596,6 +608,7 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
 
                 enter: function (character, system, to) {
                     system.setQuality("armanueva", 1);
+                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
                 },
                 exit: function (character, system, to) {
                     system.setQuality("arma", 0);
