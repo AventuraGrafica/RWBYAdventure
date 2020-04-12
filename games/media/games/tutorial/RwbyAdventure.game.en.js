@@ -194,7 +194,7 @@ undum.game.situations = {
                     system.setQuality("estudiante", 1);
                     system.setQuality("arma",1),
                     system.setQuality("puntuacion",character.qualities.puntuacion+2);
-                    system.setCharacterText("<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p>");
+                    system.setCharacterText("<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p><p>&iexcl;Has ganado el trofeo El Arma Definitiva!</p>");
                 }
             }
     ),
