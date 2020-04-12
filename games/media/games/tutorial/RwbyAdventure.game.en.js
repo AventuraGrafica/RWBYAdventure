@@ -127,10 +127,11 @@ undum.game.situations = {
                             return character.qualities.llave == 1;
                         }
             }
-    ),
-    "vuelta": new undum.SimpleSituation(
-            "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel port&oacute;n abajo, as&iacute; que decides volver por donde has venido. \
-                Ya habr&aacute; otra ocas&oacute;n en la que la puerta est&eacute; abierta, o quiz&aacute;s tengas lo que se suele necesitar para abrir una puerta. \
+
+            ),
+            "vuelta": new undum.SimpleSituation(
+                "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
+                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. <a href='ayuda'>AYUDA</a>\
                 </p>\
                 <p class='transient'><a href='hub'>Continuar...</a></p>",
             {
@@ -138,7 +139,27 @@ undum.game.situations = {
                 heading: "Mejor irse por donde has venido.",
                 displayOrder: 2,
             }
-    ),
+            ),
+    
+    
+    /*PRUEBA DE AYUDA CON SITUACIONES*/
+    
+    
+    
+            ayuda: new undum.Situation(
+                    {
+                    enter: function( character, system, to ) {
+                        if(character.qualities.llave){
+                            system.setCharacterText("<p>Quiz&aacute; la llave que tienes sirva para la puerta</p>");
+                        }else{
+                            system.setCharacterText("<p>Me parece que el cocinero estuvo una temporada\
+                                                        durmiendo en esa habitaci&oacute;n. A lo mejor &eacute;l tiene\
+                                                        la llave </p>");
+                        }
+                        system.write("<p><p class='transient'><a href='hub'>Continuar...</a></p></p>")
+                      },             
+                    }
+            ),
 
     noarma: new undum.SimpleSituation(
             "<p> Decides no darle importancia a aquel extra&ntilde;o bulto que se encontraba en tu cama, &iquest;y si era uno de esos Grimms?\
@@ -215,6 +236,10 @@ undum.game.situations = {
                 heading: "La cocina",
                 diplayOrder: 2,
                 tags: ["topic"],
+                canChoose:
+                    function (character, system, to) {
+                    return character.qualities.llave == 0;
+                }
             }
 
     ),
@@ -270,6 +295,7 @@ undum.game.situations = {
             <p> </p>\
             ",
             {
+
                 heading: "La Biblioteca",
                 tags: ["topic"],
                 displayOrder: 3,
@@ -284,6 +310,10 @@ undum.game.situations = {
                         system.doLink("conseguir-libro2");
                     }
                 },
+                canChoose:
+                    function (character, system, to) {
+                    return character.qualities.libro == 0;
+                }
             }
     ),
     
