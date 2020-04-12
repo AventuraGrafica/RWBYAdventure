@@ -121,6 +121,7 @@ undum.game.situations = {
                 displayOrder: 1,
                 enter: function (character, system, to) {
                     system.setQuality("puertaabierta", 1);
+                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
                 },
                 canChoose:
                         function (character, system, to) {
@@ -131,9 +132,8 @@ undum.game.situations = {
             ),
             "vuelta": new undum.SimpleSituation(
                 "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
-                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. <a href='ayuda'>AYUDA</a>\
-                </p>\
-                <p class='transient'><a href='hub'>Continuar...</a></p>",
+                Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. <a href='ayuda'>&iquest;Necesitas ayuda?</a>\
+                o prefieres <a href='hub'>continuar por tu cuenta...</a></p>",
             {
                 tags: ["puerta"],
                 heading: "Mejor irse por donde has venido.",
@@ -510,7 +510,9 @@ undum.game.situations = {
                 tags: ["eleccion"],
                 heading: "Atacas al monstruo (necesitas: Crescent Rose)",
                 displayOrder: 1,
-                        
+                enter: function (character, system, to) {
+                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                },
                     canChoose:
                         function (character, system, to) {                                                       
                             return character.qualities.arma == 1;
@@ -561,6 +563,9 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 tags: ["eleccion"],
                 heading: "Ahuyentas al monstruo (necesitas: Libro de los Grimm)",
                 displayOrder: 2,
+                enter: function (character, system, to) {
+                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                },
                 canChoose:
                         function (character, system, to) {                            
                             return character.qualities.libro == 1;
@@ -737,6 +742,7 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                     system.setQuality("companeros", 1);
                     system.setCharacterText(
                                 "<p>&iexcl;Has ganado el trofeo Compa&ntilde;eros!</p>");
+                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
                 },
                 actions: {
                     "quedarse": function (character, system, to) {
@@ -766,6 +772,7 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                     system.setQuality("heroesolitario", 1);
                     system.setCharacterText(
                                 "<p>&iexcl;Has ganado el trofeo Heroe Solitario!</p>");
+                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
                 },
                 actions: {
                 
