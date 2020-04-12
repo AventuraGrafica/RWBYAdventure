@@ -160,6 +160,32 @@ undum.game.situations = {
                       },             
                     }
             ),
+    
+            ayuda2: new undum.Situation(
+                    {
+                        enter: function( character, system, to) {
+                            if(character.qualities.arma && character.qualities.libro){
+                                system.setCharacterText("<p>Un arma y un libro con informaci&oacute;n... \
+                                                            sin duda podr&iacute;an ser de ayuda. Si te ves con ganas deber&iacute;as \
+                                                            ir a la misi&oacute;n.</p>");
+                            } else {
+                                if(character.qualities.arma || character.qualities.libro){
+                                    system.setCharacterText("<p>Parece que no cuentas con todos los objetos... \
+                                                            Quiz&aacute; puedas valerte solo con eso en la misi&oacute;n, aunque \
+                                                            quedarse a entrenar tampoco parece mala opci&oacute;n</p>");
+                                }else {
+                                system.setCharacterText("<p>No tienes equipamiento, asi que mejor qu&eacute;date entrenando \
+                                                            si no quieres convertirte en el mas valiente del cementerio.\
+                                                            </p>");
+                            } 
+                            }
+                            system.write("<p><p class='transient'><a href='character-text'>&iquest;Deber&iacute;as ir a la misi&oacute;n</a> o por el contrario \
+                                             <p class='transient'><a href='rechazas-mision'>rechazar ir a la misi&oacute;n para comenzar tu entrenamiento en pareja?</a></p></p></p>");
+                        }
+                    }
+                    ),
+    
+    
 
     noarma: new undum.SimpleSituation(
             "<p> Decides no darle importancia a aquel extra&ntilde;o bulto que se encontraba en tu cama, &iquest;y si era uno de esos Grimms?\
@@ -373,10 +399,12 @@ undum.game.situations = {
         </br></i></p>\
         <p><br>Efectivamente, tu algo hiperactiva compa&ntilde;era deb&iacute;a de haber salido corriendo hacia vuestra ahora compartida habitaci&oacute;n en cuanto se di&oacute; \
         la noticia, siendo as&iacute; t&uacute;, el &uacute;ltimo en salir del Hall.</br></p>\
-        <p>Ahora estaba en tus manos, &iquest;Deber&iacute;as\
+        <p class='transient'>Ahora estaba en tus manos, &iquest;Deber&iacute;as\
         <a href='character-text'>ir a la misi&oacute;n</a> o por el contrario\
-        <a href='rechazas-mision'>rechazar ir a la misi&oacute;n para comenzar tu entrenamiento en pareja?</a>.\<p>",
+        <a href='rechazas-mision'>rechazar ir a la misi&oacute;n para comenzar tu entrenamiento en pareja?</a>.\
+        <a href='ayuda2'>&iquest;Necesitas ayuda?</a><p>",
             ),
+            
     "character-text": new undum.SimpleSituation(
             "<h1>Misi&oacute;n</h1>\
         <p>Decidiste ir a aquella misi&oacute;n urgente tal como te hab&iacute;an pedido.\
