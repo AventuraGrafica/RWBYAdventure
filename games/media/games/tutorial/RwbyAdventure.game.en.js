@@ -402,6 +402,7 @@ undum.game.situations = {
         <p class='transient'>Ahora estaba en tus manos, &iquest;Deber&iacute;as\
         <a href='character-text'>ir a la misi&oacute;n</a> o por el contrario\
         <a href='rechazas-mision'>rechazar ir a la misi&oacute;n para comenzar tu entrenamiento en pareja?</a>.\
+        <br></br>\
         <a href='ayuda2'>&iquest;Necesitas ayuda?</a><p>",
             ),
             
