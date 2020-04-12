@@ -733,16 +733,48 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
              <p><i>'Ha muerto por lo visto se trataba de un Grimm bastante poderoso con aspecto de drag&oacute;n, fue demasiado para un novato como &eacute;l'</i></p> \
              <br></br>\
              <p>En ese momento tu cuerpo se qued&oacute; completamente paralizado, en seguida relacionaste conceptos y entendiste que se trataba muy posiblemente de la misi&oacute;n que quer&iacute;an haberte asignado a ti</p> \
-             <p>No pudiste evitar sentirte culpable, &iquest;y si hubieras acudido t&uacute; en su lugar? &iquest;Podr&iacute;s haber salvado su vida sin dar a cambio la tuya? \
-                Ahora ya era tarde para preguntarse aquello el entrenamiento deb&iacute; continuar. \
-                <p><center><img src='media/img/castphoto.png'></center></p> \
-                <p><center><a href='./quedarse'> &iexcl;SUERTE EN TU CAMINO CAZADOR ! </a></center></p>",
+             <p>No pudiste evitar sentirte culpable, &iquest;y si hubieras acudido t&uacute; en su lugar? &iquest;Podr&iacute;as haber salvado su vida sin dar a cambio la tuya? \
+                Ahora ya era tarde para preguntarse aquello el entrenamiento deb&iacute;a <a href='eleccion-pareja'>continuar.</a>",
             {
                 enter: function (character, system, to) {
                     system.setQuality("companeros", 1);
                     system.setCharacterText(
                                 "<p>&iexcl;Has ganado el trofeo Compa&ntilde;eros!</p>");
                     system.setQuality("puntuacion",character.qualities.puntuacion+2);
+                },
+                },
+    ),
+    
+    "eleccion-pareja": new undum.SimpleSituation(
+            "<p>Y as&iacute; fue, el entrenamiento continu&oacute; durante varias semanas, y el d&iacute;a tan esperado por todos hab&iacute;a llegado, el d&iacute;a de la\
+            elecci&oacute;n de pareja. Era el momento en el que vuestro grupo pasar&iacute;a por fin a conformarse por cuatro personas, cuatro personas que\
+            permanecer&iacute;ais el resto del curso, y de los siguientes, entrenando, yendo a misiones, conviviendo, aprendiendo y cazando juntos.\
+            Para muchos y muchas marcar&iacute;a un antes y un despu&eacute;s en la academia, podr&iacute;a ser el principio del fin, o el fin del principio.</p>\
+            <p>Ni Ruby ni t&uacute; a&uacute;n ten&iacute;ais muy claro quien pasar&iacute;a a formar parte de vuestro equipo, pues principalmente eran dos las parejas\
+            que m&aacute;s os llamaban la atenci&oacute;n y con las que m&aacute;s conexi&iacute;n y sinergia hab&iacute;ais tenido hasta el momento.\
+            Tras discutirlo varias veces con tu pareja y su gran capacidad de decisi&oacute;n para los momentos importantes, el peso de la misma\
+            acab&oacute; recayendo sobre t&iacute;, de manera totalmente inesperada, por supuesto.</p>\
+            <p>Pero, &iquest;por qui&eacute;n deber&iacute;as de decantarte finalmente?</p>\
+            <p>&iquest;Quiz&aacute;s por <a href='norayren'>Nora y Ren</a>, la fuerza y la agilidad, el\
+            temperamento y la compostura, la locura y la calma?</p>\
+            <p><center><img src='media/img/norayren.png'></center></p> \
+            <p>&iquest;O quiz&aacute;s por <a href='pyrrhayjaune'>Pyrrha y Jaune</a>, la espada y el rifle, la cercan&iacute;a y la distancia,\
+            la sabidur&iacute;a y la estrategia?</p>\
+            <p><center><img src='media/img/pyrrhayjaune.png'></center></p>",
+            ),
+    
+    "norayren": new undum.SimpleSituation(
+            "<p>No dudaste ni un solo segundo, sin duda eran Nora y Ren los que mejor se ajustaban a vuestro estilo de combate. La potencia del martillo de Nora sumada a \
+            la astucia de Ren era el complemento perfecto para la locura de Ruby y para tu habilidad de tomar decisiones. &iexclPor fin er&aacute;is cuatro en el grupo!\n\
+            Un grupo que sin duda dar&iacute;a mucho de que hablar en los siguientes cursos.</p>\
+            <p><center><img src='media/img/final.png'></center></p>\
+            <p><center><a href='./quedarse'> &iexcl; SUERTE EN VUESTRO CAMINO, GRANDIOSO EQUIPO ! </a></center></p>",
+            {
+                enter: function (character, system, to) {
+                    system.setQuality("sonmultitud", 1);
+                    system.setCharacterText(
+                                "<p>&iexcl;Has ganado el trofeo M&aacute;s de dos son multitud!</p>");
+                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
                 },
                 actions: {
                     "quedarse": function (character, system, to) {
@@ -751,7 +783,29 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                     }
                 },
             }
-    ),
+            ),
+    
+    "pyrrhayjaune": new undum.SimpleSituation(
+            "<p>No dudaste ni un solo segundo, sin duda eran Pyrrha y Jaune los que mejor se ajustaban a vuestro estilo de combate. La punter&iacute;a del rifle de Pyrrha\
+            sumada al sentido de la justica de Jaune era el complemento perfecto para el sentido de amistad de Ruby y la versatilidad de tu querida arma.</p>\
+            <p><center><img src='media/img/final.png'></center></p>\
+            <p><center><a href='./quedarse'> &iexcl; SUERTE EN VUESTRO CAMINO, GRANDIOSO EQUIPO ! </a></center></p>",
+            {
+                enter: function (character, system, to) {
+                    system.setQuality("sonmultitud", 1);
+                    system.setCharacterText(
+                                "<p>&iexcl;Has ganado el trofeo M&aacute;s de dos son multitud!</p>");
+                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                },
+                actions: {
+                    "quedarse": function (character, system, to) {
+                        system.setCharacterText(
+                                "<p>&iexclENHORABUENA!</p>");
+                    }
+                },
+            }
+            ),
+    
     "asciendes": new undum.SimpleSituation(
             "<p> Sabes perfectamente que aquella no es una oportunidad que puedas rechazar y que no se le concede a casi nadie. De hecho, dudabas que jam&aacute;s te la volvieran a ofrecer a ti. \
                  Entend&iacute;as que estaba bastante feo el hecho de dejar tirada a tu compa&ntilde;era y futuro equipo, y que de hecho tras un mes entero de entrenamiento ser&iacute;a dif&iacute;cil que Ruby pudiera encontrar a otro cazador o cazadora con la que llegar a un nivel decente incluso como para avanzar de rango este a&ntilde;o, deber&iacute;a de amoldarse de nuevo al estilo de batalla de otra persona y casi empezar de cero.\
@@ -761,7 +815,8 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 Antes de que llegase a entrar por la puerta, las fuertes pisadas propinadas retumbaban por todo el pasillo anterior y el mism&iacute;simo despacho. \
                 Un cazador con algunas gotas de sudor recorriendo su frente abri&oacute; la puerta apresuradamente y entre jadeos, recit&oacute; lo siguiente.</p>\
              <br></br> \
-            <p>'Ha muerto por lo visto se trataba de un Grimm bastante poderoso con aspecto de drag&oacute;n, fue demasiado para un novato como &eacute;l'</p> \
+            <p><i>'Ha muerto por lo visto se trataba de un Grimm bastante poderoso con aspecto de drag&oacute;n, fue demasiado para un novato como &eacute;l'</i></p> \
+            <br></br>\
             <p>En ese momento tu cuerpo se qued&oacute; completamente paralizado, en seguida relacionaste conceptos y entendiste que se trataba muy posiblemente de la misi&oacute;n que quer&iacute;an haberte asignado a ti \
                No pudiste evitar sentirte culpable, &iquest;y si hubieras acudido t&uacute; en su lugar? &iquest;Podr&iacute;as haber salvado su vida sin dar a cambio la tuya? \
                Ahora ya era tarde para preguntarse aquello el entrenamiento de tus nuevas cualidades y tu nuevo rango deb&iacute;a continuar.</p> \
@@ -878,6 +933,9 @@ undum.game.qualities = {
     companeros: new undum.OnOffQuality(
             "Compa&ntilde;eros", {priority: "0007", group: 'trofeos', onDisplay: "&#10003;"}
     ),
+    sonmultitud: new undum.OnOffQuality(
+            "M&aacute;s de dos son multitud", {priority: "0008", group: 'trofeos', onDisplay: "&#10003;"}
+    ),
     puntuacion: new undum.NumericQuality(
             "Puntuacion", {priority: "0001", group:'progress'} 
     ),
@@ -912,5 +970,6 @@ undum.game.init = function (character, system) {
     character.qualities.perdedor = 0;
     character.qualities.companeros = 0;
     character.qualities.puntuacion = 0;
+    character.qualities.sonmultitud = 0;
     system.setCharacterText("<p>Te encuentras en la academia.</p>");
 };
