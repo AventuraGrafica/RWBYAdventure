@@ -59,3 +59,56 @@ Decidimos utilizar el mismo tablero para el Sprint Backlog y el Sprint Planning 
 El product Owner durante este Sprint ha sido Alberto Beteta Fernández, aunque también ha estado haciendo la función de desarrollador.
 ### Enlace tablero Trello de Sprint 1
 [Enlace al tablero del Sprint 1](https://trello.com/b/rKLXnqWB/sprint-1-aventura-gr%C3%A1fica)
+
+ # Sprint 2 
+ ### Product Owner
+El product Owner durante este Sprint ha sido Juan Francisco Ruíz Rodríguez, aunque también ha hecho la función de desarrollador.
+
+  ## Captura de pantalla de las HU que hemos decidido que formen parte del Sprint Backlog![Imagen](https://github.com/AlbertoBtt/ImagenesDesarrolloAgil/blob/master/Product%20Backlog%201.PNG?raw=true)
+ Hemos decidido escoger estas historias pues son las que más valor nos aportaban dentro de un tiempo aceptable y que pudiesemos hacer debido a la situación que estamos viviendo.
+   
+      
+  ## Captura de pantalla de las tareas que forman las historias de usuario (Se corresponden con el número de historia de usuario)
+  ![enter image description here](https://github.com/AlbertoBtt/ImagenesDesarrolloAgil/blob/master/Tareas.PNG?raw=true)
+       
+  ## Product Backlog y Sprint Backlog tras el Product Backlog refinement
+  ### Product Backlog  
+  ![Imagen](https://github.com/AlbertoBtt/ImagenesDesarrolloAgil/blob/master/Product%20Backlog%20Refinement.PNG?raw=true)
+   
+    
+ ### Sprint Backlog 
+ ![Imagen](https://github.com/AlbertoBtt/ImagenesDesarrolloAgil/blob/master/Sprint%20Backlog%20Refinement%201.PNG?raw=true) 
+ ![Imagen](https://github.com/AlbertoBtt/ImagenesDesarrolloAgil/blob/master/Sprint%20Backlog%20Refinement%202.PNG?raw=true)
+  
+### Conclusiones tras el sprint review 
+ Hemos realizado todas las Historias de Usuario que habíamos planeado para este Sprint. Las funcionalidades que hemos implementado son: Sistema de Puntuación, Sistema de Trofeos, posibilidad de escuchar música mientras juegas, sistema de ayuda mientras juegas basado en los objetos que tenemos, posibilidad de jugar de forma remota y la inclusión de una landing page.
+ 
+El product backlog ha sido actualizado constantemente con las historias de usuario que ibamos terminando, pero no hemos añadido nuevas al sprint ya que no teníamos tampoco mucho tiempo. Las valoraciones de las Historias de usuario que hicimos al principio creemos que son correctas.
+
+El trabajo en equipo ha sido perfecto y no han surgido a penas problemas, si un programador tenía alguna duda ha sido resuelta en la daily scrum que realizamos o de forma asíncrona por un grupo de Telegram que tenemos.
+
+La Historias de Usuario del siguiente sprint todavía no las tenemos decididas ya que la mayoría son de alta dificultad y poco valor, además con la situación en la que estamos tampoco trabajar conjuntamente de la mejor manera.
+
+La Historia de Usuario que deberíamos incluir en el siguiente sprint debería ser la posibilidad de recuperar la partida en cualquier momento y dispositivo, pero para incluirla tambíen deberíamos hacer la historia de usuario de sistema de login. Pero cómo hemos comentado anteriormente, tienen una alta dificultad.
+### Conclusiones tras el sprint retrospective 
+
+La forma de trabajar de cada uno ha sido independiente, es decir, hemos ido haciendo nuestras correspondientes historias de usuario a través de una rama propia en GitHub y al final hemos juntado todo en una misma rama. 
+
+Si las historias de usuario que estabamos desarrollando estaban relacionadas con las de otro desarrollador, ellos ya se han puesto de acuerdo de forma privada para solucionar cualquier duda o problema que surgiese. 
+
+Las herramientas utilizadas para el desarrollo ya dependen de cada desarrollador, pero Trello y Github sí han sido utilizadas por todos y de forma correcta.
+
+El desarrollo ha ido bien sin ningún problema grave y creemos que la forma que tenemos ahora mismo de trabajar es la correcta para desarrollar el producto de forma eficiente.
+
+### Captura final de Sprint Backlog y Sprint Planning	
+![enter image description here](https://github.com/AlbertoBtt/ImagenesDesarrolloAgil/raw/master/Sprint%20Final.PNG?raw=true)
+Decidimos utilizar el mismo tablero para el Sprint Backlog y el Sprint Planning ya que así era más fácil su uso en Trello.
+### Captura final Product Backlog
+![enter image description here](https://github.com/AlbertoBtt/ImagenesDesarrolloAgil/blob/master/Product%20Backlog%20Final.PNG?raw=true)
+### Enlace tablero Trello de Sprint 2
+[Enlace al tablero del Sprint 2](https://trello.com/b/3YpkV72D/sprint-2-aventura-gr%C3%A1fica)
+### Enlace a la Landing Page del Juego
+[Enlace a la landing page del juego](https://rwbyadventure.carrd.co/)
+### Enlace al Juego
+[Enlace al juego](https://rwbyadventure.000webhostapp.com/)
+
