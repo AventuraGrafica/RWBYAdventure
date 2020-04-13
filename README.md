@@ -81,7 +81,7 @@ El product Owner durante este Sprint ha sido Juan Francisco Ruíz Rodríguez, au
  ![Imagen](https://github.com/AlbertoBtt/ImagenesDesarrolloAgil/blob/master/Sprint%20Backlog%20Refinement%202.PNG?raw=true)
   
 ### Conclusiones tras el sprint review 
- Hemos realizado todas las Historias de Usuario que habíamos planeado para este Sprint. Las funcionalidades que hemos implementado son: Sistema de Puntuación, Sistema de Trofeos, posibilidad de escuchar música mientras juegas, sistema de ayuda mientras juegas basado en la puntuación que tenemos, posibilidad de jugar de forma remota y una landing page.
+ Hemos realizado todas las Historias de Usuario que habíamos planeado para este Sprint. Las funcionalidades que hemos implementado son: Sistema de Puntuación, Sistema de Trofeos, posibilidad de escuchar música mientras juegas, sistema de ayuda mientras juegas basado en los objetos que tenemos, posibilidad de jugar de forma remota y la inclusión de una landing page.
  
 El product backlog ha sido actualizado constantemente con las historias de usuario que ibamos terminando, pero no hemos añadido nuevas al sprint ya que no teníamos tampoco mucho tiempo. Las valoraciones de las Historias de usuario que hicimos al principio creemos que son correctas.
 
