@@ -112,3 +112,59 @@ Decidimos utilizar el mismo tablero para el Sprint Backlog y el Sprint Planning 
 ### Enlace al Juego
 [Enlace al juego](https://rwbyadventure.000webhostapp.com/)
 
+  
+  # Sprint 3 
+ ### Product Owner
+El product Owner durante este Sprint ha sido Rafael Ortega Chica, excepcionalmente no ha hecho la función de desarrollador. 
+ 
+  
+## Captura de pantalla de las HU que hemos decidido que formen parte del Sprint Backlog 
+![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/agil_Sprint3_Capturas/sprintBacklog.JPG?raw=true)  
+Hemos escogido estas historias de usuario pues eran las que más nos aportaban e interesaban para el desarrollo de este sprint.  
+  
+## Captura de pantalla de las tareas que forman las historias de usuario (Se corresponden con el número de historia de usuario)
+ ![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/agil_Sprint3_Capturas/divisionEnTareas.JPG?raw=true)  
+   
+ 
+## Product Backlog y Sprint Backlog tras el Product Backlog refinement
+  ### Product Backlog  
+  ![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/agil_Sprint3_Capturas/productBacklog_Refinement.JPG?raw=true)
+   
+    
+ ### Sprint Backlog 
+ ![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/agil_Sprint3_Capturas/sprintBacklogRefinement.JPG?raw=true) 
+ 
+   
+### Conclusiones tras el sprint review  
+ 
+Se han realizado todas las historias de usuario que se habían planteado para el sprint, se ha implementado un sistema de login para que el usuario pueda crear una cuenta y poder iniciar sesión y hacer que la página sea responsive. 
+ 
+Nos seguimos planteando si implementar la historia de usuario de poder recuperar la partida en cualquier momento, pero debido a la dificultad de la misma, no la hemos implementado aun. 
+ 
+ 
+El product backlog se ha ido actualizado asiduamente y los valores que dimos al inicio de sprint no se han visto modificados pues los consideramos correctos. 
+ 
+### Conclusiones tras el sprint retrospective 
+ 
+Todo el trabajo ha sido independiente, trabajando cada uno con su respectiva rama durante el desarrollo con el control de versiones.
+Cuando era necesaria la colaboración de algún miembro, contactaban entre ellos por privado, como ya mencionado en la documentación  
+sprint anterior. 
+ 
+Respecto a las herramientas de desarrollo, es igual al sprint anterior, dependen del desarrollador, aunque tanto Github como Trello sí son comunes. 
+
+El desarrollo de la práctica ha ido correctamente, aunque a la hora de subir el sprint 2 hubo debido a un desliz y un pequeño fallo de comunicación por lo que no se subió durante el desarrollo de este sprint, obviando ese hecho, ningún otro problema.  
+ 
+### Captura final de Sprint Backlog y Sprint Planning	
+![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/agil_Sprint3_Capturas/sprintBacklogyPlanningFinalizado.JPG?raw=true)
+ 
+Se ha utilizado el mismo tablero para el Sprint Backlog y el Sprint Planning ya que así su uso era más sencillo. 
+ 
+### Captura final Product Backlog
+![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/agil_Sprint3_Capturas/productBacklogFinalizado.JPG?raw=true) 
+ 
+### Enlace tablero Trello de Sprint 3
+[Sprint 3](https://trello.com/b/IhyD4dUc/sprint-3-aventura-gráfica)
+### Enlace a la Landing Page del Juego
+[Landing page](https://rwbyadventure.carrd.co/)
+### Enlace al Juego
+[Enlace al juego](https://rwbyadventure.000webhostapp.com/)
