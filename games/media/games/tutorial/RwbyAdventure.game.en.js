@@ -121,7 +121,7 @@ undum.game.situations = {
                 displayOrder: 1,
                 enter: function (character, system, to) {
                     system.setQuality("puertaabierta", 1);
-                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 2);
                 },
                 canChoose:
                         function (character, system, to) {
@@ -129,9 +129,9 @@ undum.game.situations = {
                         }
             }
 
-            ),
-            "vuelta": new undum.SimpleSituation(
-                "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
+    ),
+    "vuelta": new undum.SimpleSituation(
+            "<p>No quieres tentar a la suerte, ni gastar toda tu sobrada fuerza en tirar aquel portón abajo, así que decides volver por donde has venido. \
                 Ya habrá otra ocasión en la que la puerta esté abierta, o quizás tengas lo que se suele necesitar para abrir una puerta. <a href='ayuda'>&iquest;Necesitas ayuda?</a>\
                 o prefieres <a href='hub'>continuar por tu cuenta...</a></p>",
             {
@@ -139,53 +139,50 @@ undum.game.situations = {
                 heading: "Mejor irse por donde has venido.",
                 displayOrder: 2,
             }
-            ),
-    
-    
+    ),
+
     /*PRUEBA DE AYUDA CON SITUACIONES*/
-    
-    
-    
-            ayuda: new undum.Situation(
-                    {
-                    enter: function( character, system, to ) {
-                        if(character.qualities.llave){
-                            system.setCharacterText("<p>Quiz&aacute; la llave que tienes sirva para la puerta</p>");
-                        }else{
-                            system.setCharacterText("<p>Me parece que el cocinero estuvo una temporada\
+
+
+
+    ayuda: new undum.Situation(
+            {
+                enter: function (character, system, to) {
+                    if (character.qualities.llave) {
+                        system.setCharacterText("<p>Quiz&aacute; la llave que tienes sirva para la puerta</p>");
+                    } else {
+                        system.setCharacterText("<p>Me parece que el cocinero estuvo una temporada\
                                                         durmiendo en esa habitaci&oacute;n. A lo mejor &eacute;l tiene\
                                                         la llave </p>");
-                        }
-                        system.write("<p><p class='transient'><a href='hub'>Continuar...</a></p></p>")
-                      },             
                     }
-            ),
-    
-            ayuda2: new undum.Situation(
-                    {
-                        enter: function( character, system, to) {
-                            if(character.qualities.arma && character.qualities.libro){
-                                system.setCharacterText("<p>Un arma y un libro con informaci&oacute;n... \
+                    system.write("<p><p class='transient'><a href='hub'>Continuar...</a></p></p>")
+                },
+            }
+    ),
+
+    ayuda2: new undum.Situation(
+            {
+                enter: function (character, system, to) {
+                    if (character.qualities.arma && character.qualities.libro) {
+                        system.setCharacterText("<p>Un arma y un libro con informaci&oacute;n... \
                                                             sin duda podr&iacute;an ser de ayuda. Si te ves con ganas deber&iacute;as \
                                                             ir a la misi&oacute;n.</p>");
-                            } else {
-                                if(character.qualities.arma || character.qualities.libro){
-                                    system.setCharacterText("<p>Parece que no cuentas con todos los objetos... \
+                    } else {
+                        if (character.qualities.arma || character.qualities.libro) {
+                            system.setCharacterText("<p>Parece que no cuentas con todos los objetos... \
                                                             Quiz&aacute; puedas valerte solo con eso en la misi&oacute;n, aunque \
                                                             quedarse a entrenar tampoco parece mala opci&oacute;n</p>");
-                                }else {
-                                system.setCharacterText("<p>No tienes equipamiento, asi que mejor qu&eacute;date entrenando \
+                        } else {
+                            system.setCharacterText("<p>No tienes equipamiento, asi que mejor qu&eacute;date entrenando \
                                                             si no quieres convertirte en el mas valiente del cementerio.\
                                                             </p>");
-                            } 
-                            }
-                            system.write("<p><p class='transient'><a href='character-text'>&iquest;Deber&iacute;as ir a la misi&oacute;n</a> o por el contrario \
-                                             <p class='transient'><a href='rechazas-mision'>rechazar ir a la misi&oacute;n para comenzar tu entrenamiento en pareja?</a></p></p></p>");
                         }
                     }
-                    ),
-    
-    
+                    system.write("<p><p class='transient'><a href='character-text'>&iquest;Deber&iacute;as ir a la misi&oacute;n</a> o por el contrario \
+                                             <p class='transient'><a href='rechazas-mision'>rechazar ir a la misi&oacute;n para comenzar tu entrenamiento en pareja?</a></p></p></p>");
+                }
+            }
+    ),
 
     noarma: new undum.SimpleSituation(
             "<p> Decides no darle importancia a aquel extra&ntilde;o bulto que se encontraba en tu cama, &iquest;y si era uno de esos Grimms?\
@@ -214,29 +211,29 @@ undum.game.situations = {
                         system.setQuality("arma", 1);
                         system.setQuality("armadefinitiva", 1)
                         system.doLink("conseguir-arma2");
-                    }                        
+                    }
                 },
                 exit: function (character, system, to) {
                     system.setQuality("estudiante", 1);
-                    system.setQuality("arma",1),
-                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
+                    system.setQuality("arma", 1),
+                            system.setQuality("puntuacion", character.qualities.puntuacion + 2);
                     system.setCharacterText("<p>&iexcl;Con este pedazo de arma seguro que eres capaz de protegerte de los peligros venideros!</p><p>&iexcl;Has ganado el trofeo El Arma Definitiva!</p>");
                 }
             }
     ),
-    
-    "conseguir-arma2": new undum.SimpleSituation(                                 
-             "<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
+
+    "conseguir-arma2": new undum.SimpleSituation(
+            "<p>Ahora te sientes m&aacute;s seguro y listo para el combate,\
                         as&iacute; que decides seguir \
                         explorando el lugar, con tu guada&ntilde;a doblada de \
                         la manera m&aacute;s compacta posible, \
                         ocult&aacute;ndola en la parte trasera de tus ropajes.\
                         Al salir te cargas el pomo de la puerta, vaya forma de empezar el d&iacute;a.\
                         <p class='transient'><a href='hub'>Continuar...</a></p></p>"
-        ),
+            ),
 
     cocina: new undum.SimpleSituation(
-        "<p> Deambulando por los pasillos, un delicioso y apetitoso olor llega a tus fosas nasales.\
+            "<p> Deambulando por los pasillos, un delicioso y apetitoso olor llega a tus fosas nasales.\
         Tu est&oacute;mago comienza a rugir, y recuerdas que llevas por lo menos veinte minutos sin llevarte nada al est&oacute;mago. Eso est&aacute; claro que no son condiciones para trabajar. \
         Bueno, o lo que se supone que vayas a hacer. \
         Siguiendo aquel rastro del mismo modo que un tigre persigue a su presa, llegas a una sencilla pero amplia habitaci&oacute;n donde se encontraba la cocina de la academia. \
@@ -263,9 +260,9 @@ undum.game.situations = {
                 diplayOrder: 2,
                 tags: ["topic"],
                 canChoose:
-                    function (character, system, to) {
-                    return character.qualities.llave == 0;
-                }
+                        function (character, system, to) {
+                            return character.qualities.llave == 0;
+                        }
             }
 
     ),
@@ -279,7 +276,7 @@ undum.game.situations = {
             <p><center><img src='media/img/llave.jpg'></center></p>\
             <p>&iquest;Deber&iacute;as <a href='cogerllave'>coger la llave y salir r&aacute;pidamente de all&iacute;?</a> \
             O por el contrario, <a href='hub'>volver directamente al pasillo y continuar tu camino.</a></p>",
-    ),
+            ),
 
     cogerllave: new undum.SimpleSituation(
             "<p>Consideras que coger la llave es lo correcto, si bien tu intuici&oacute;n y curiosidad te hab&iacute;a abierto puertas, seguro que una llave te ayuda a abrir \
@@ -289,7 +286,7 @@ undum.game.situations = {
                 enter: function (character, system, to) {
                     system.setQuality("llave", 1);
                     system.setQuality("misteriosallave", 1);
-                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 2);
                     system.setCharacterText(
                             "<p>Encuentras una misteriosa llave, te preguntas para qu&eacute; puerta ser&aacute;.</p><p>&iexcl;Has ganado el trofeo Llave Misteriosa!</p>");
                 }
@@ -332,24 +329,23 @@ undum.game.situations = {
                         system.setCharacterText(
                                 "<p>&iexcl;Ahora que has cometido una ilegalidad, sal por patas de ah&iacute;\
                                 antes de que te pillen! El Hall principal es el sitio mas seguro.</p><p>&iexcl;Has ganado el trofeo El Libro Negro!</p>");
-                        system.setQuality("puntuacion",character.qualities.puntuacion+1);                                                    
+                        system.setQuality("puntuacion", character.qualities.puntuacion + 1);
                         system.doLink("conseguir-libro2");
                     }
                 },
                 canChoose:
-                    function (character, system, to) {
-                    return character.qualities.libro == 0;
-                }
+                        function (character, system, to) {
+                            return character.qualities.libro == 0;
+                        }
             }
     ),
-    
-    "conseguir-libro2" : new undum.SimpleSituation(
+
+    "conseguir-libro2": new undum.SimpleSituation(
             "<p>&iexcl;Ahora que has cometido una ilegalidad, sal por patas de ah&iacute;\
             antes de que te pillen! El Hall principal es el sitio mas seguro.</p>\n\
             <p>Tras tu decisi&oacute;n decides <a href='hub'>Continuar con la aventura</a></p>\
                 </p>"
-        ),
-    
+            ),
 
     "quality-types": new undum.SimpleSituation(
             "<p>\
@@ -405,7 +401,7 @@ undum.game.situations = {
         <br></br>\
         <a href='ayuda2'>&iquest;Necesitas ayuda?</a><p>",
             ),
-            
+
     "character-text": new undum.SimpleSituation(
             "<h1>Misi&oacute;n</h1>\
         <p>Decidiste ir a aquella misi&oacute;n urgente tal como te hab&iacute;an pedido.\
@@ -540,12 +536,12 @@ undum.game.situations = {
                 heading: "Atacas al monstruo (necesitas: Crescent Rose)",
                 displayOrder: 1,
                 enter: function (character, system, to) {
-                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 1);
                 },
-                    canChoose:
-                        function (character, system, to) {                                                       
+                canChoose:
+                        function (character, system, to) {
                             return character.qualities.arma == 1;
-                        }                
+                        }
             }
     ),
     "ahuyentar": new undum.SimpleSituation(
@@ -593,10 +589,10 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 heading: "Ahuyentas al monstruo (necesitas: Libro de los Grimm)",
                 displayOrder: 2,
                 enter: function (character, system, to) {
-                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 1);
                 },
                 canChoose:
-                        function (character, system, to) {                            
+                        function (character, system, to) {
                             return character.qualities.libro == 1;
                         }
             }
@@ -633,7 +629,7 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 enter: function (character, system, from) {
                     system.setQuality("perdedor", 1);
                     system.setCharacterText(
-                                "<p>&iexclHas ganado el trofeo Perdedor!</p>");
+                            "<p>&iexclHas ganado el trofeo Perdedor!</p>");
                 },
                 actions: {
                     "ascenso": function (character, system, to) {
@@ -654,11 +650,11 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 No solo te ha dado tu primera victoria contra un Grimm real, y uno bastante grande y feroz. \
                 Sino que adem&aacute;s tiene demasiado valor sentimental para ti, as&iacute; que, r&aacute;pidamente cierras el cofre. \
                 <p class='transient'><a href='punto-extraccion'>Salir de la cueva en direcci&oacute;n al punto de extracci&oacute;n.</a></p>\</p>",
-    {
-        enter: function (character, system, to){
-            system.setQuality("puntuacion",character.qualities.puntuacion+1);         
-        },        
-    },                        
+            {
+                enter: function (character, system, to) {
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 1);
+                },
+            },
             ),
     "equipar-arma": new undum.SimpleSituation(
             "<h1>Equipar Arma</h1>\
@@ -672,7 +668,7 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
 
                 enter: function (character, system, to) {
                     system.setQuality("armanueva", 1);
-                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 2);
                 },
                 exit: function (character, system, to) {
                     system.setQuality("arma", 0);
@@ -698,10 +694,10 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 enter: function (character, system, from) {
                     system.setQuality("heroesolitario", 1);
                     system.setCharacterText(
-                                "<p>&iexcl;Has ganado el trofeo Heroe Solitario!</p>");
+                            "<p>&iexcl;Has ganado el trofeo Heroe Solitario!</p>");
                 },
                 actions: {
-                
+
                     "ascenso": function (character, system, to) {
                         system.setQuality("cazadormedio", 1);
                         system.setQuality("estudiante", 0);
@@ -768,12 +764,12 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 enter: function (character, system, to) {
                     system.setQuality("companeros", 1);
                     system.setCharacterText(
-                                "<p>&iexcl;Has ganado el trofeo Compa&ntilde;eros!</p>");
-                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
+                            "<p>&iexcl;Has ganado el trofeo Compa&ntilde;eros!</p>");
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 2);
                 },
-                },
-    ),
-    
+            },
+            ),
+
     "eleccion-pareja": new undum.SimpleSituation(
             "<p>Y as&iacute; fue, el entrenamiento continu&oacute; durante varias semanas, y el d&iacute;a tan esperado por todos hab&iacute;a llegado, el d&iacute;a de la\
             elecci&oacute;n de pareja. Era el momento en el que vuestro grupo pasar&iacute;a por fin a conformarse por cuatro personas, cuatro personas que\
@@ -791,7 +787,7 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
             la sabidur&iacute;a y la estrategia?</p>\
             <p><center><img src='media/img/pyrrhayjaune.png'></center></p>",
             ),
-    
+
     "norayren": new undum.SimpleSituation(
             "<p>No dudaste ni un solo segundo, sin duda eran Nora y Ren los que mejor se ajustaban a vuestro estilo de combate. La potencia del martillo de Nora sumada a \
             la astucia de Ren era el complemento perfecto para la locura de Ruby y para tu habilidad de tomar decisiones. &iexclPor fin er&aacute;is cuatro en el grupo!\n\
@@ -802,8 +798,8 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 enter: function (character, system, to) {
                     system.setQuality("sonmultitud", 1);
                     system.setCharacterText(
-                                "<p>&iexcl;Has ganado el trofeo M&aacute;s de dos son multitud!</p>");
-                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                            "<p>&iexcl;Has ganado el trofeo M&aacute;s de dos son multitud!</p>");
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 1);
                 },
                 actions: {
                     "quedarse": function (character, system, to) {
@@ -812,8 +808,8 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                     }
                 },
             }
-            ),
-    
+    ),
+
     "pyrrhayjaune": new undum.SimpleSituation(
             "<p>No dudaste ni un solo segundo, sin duda eran Pyrrha y Jaune los que mejor se ajustaban a vuestro estilo de combate. La punter&iacute;a del rifle de Pyrrha\
             sumada al sentido de la justica de Jaune era el complemento perfecto para el sentido de amistad de Ruby y la versatilidad de tu querida arma.</p>\
@@ -823,8 +819,8 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                 enter: function (character, system, to) {
                     system.setQuality("sonmultitud", 1);
                     system.setCharacterText(
-                                "<p>&iexcl;Has ganado el trofeo M&aacute;s de dos son multitud!</p>");
-                    system.setQuality("puntuacion",character.qualities.puntuacion+1);
+                            "<p>&iexcl;Has ganado el trofeo M&aacute;s de dos son multitud!</p>");
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 1);
                 },
                 actions: {
                     "quedarse": function (character, system, to) {
@@ -833,8 +829,8 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                     }
                 },
             }
-            ),
-    
+    ),
+
     "asciendes": new undum.SimpleSituation(
             "<p> Sabes perfectamente que aquella no es una oportunidad que puedas rechazar y que no se le concede a casi nadie. De hecho, dudabas que jam&aacute;s te la volvieran a ofrecer a ti. \
                  Entend&iacute;as que estaba bastante feo el hecho de dejar tirada a tu compa&ntilde;era y futuro equipo, y que de hecho tras un mes entero de entrenamiento ser&iacute;a dif&iacute;cil que Ruby pudiera encontrar a otro cazador o cazadora con la que llegar a un nivel decente incluso como para avanzar de rango este a&ntilde;o, deber&iacute;a de amoldarse de nuevo al estilo de batalla de otra persona y casi empezar de cero.\
@@ -848,18 +844,37 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
             <br></br>\
             <p>En ese momento tu cuerpo se qued&oacute; completamente paralizado, en seguida relacionaste conceptos y entendiste que se trataba muy posiblemente de la misi&oacute;n que quer&iacute;an haberte asignado a ti \
                No pudiste evitar sentirte culpable, &iquest;y si hubieras acudido t&uacute; en su lugar? &iquest;Podr&iacute;as haber salvado su vida sin dar a cambio la tuya? \
-               Ahora ya era tarde para preguntarse aquello el entrenamiento de tus nuevas cualidades y tu nuevo rango deb&iacute;a continuar.</p> \
-            <p><center><img src='media/img/final.png'></center></p> \
-                <p><center><a href='./ascenso'> &iexcl;SUERTE EN TU CAMINO, SOLITARIO CAZADOR DE RANGO MEDIO ! </a></center></p>",
+               Ahora ya era tarde para preguntarse aquello el entrenamiento de tus nuevas cualidades y tu nuevo rango deb&iacute;a <a href='inconsciente'>continuar.</a></p>",
+            ),
+
+    "inconsciente": new undum.SimpleSituation(
+            "<p>Pero no todo continu&oacute como esperabas, antes de que pudieras despedirte si quiera de los all&iacute presentes, toda tu mente se nubl&oacute y tu vista se oscureci&oacute\
+                haciendo que tus piernas se tambaleasen. Eso, sumado a un golpe seco fue lo &uacuteltimo que recordabas antes de volver a abrir los ojos.\
+                No entend&iacuteas muy bien que hab&iacutea pasado, de hecho, de no ser por una figura all&iacute presente que conforme tus ojos se acostumbraban a la luz tomaba forma de \
+                persona, tampoco lo hubieras entendido durante una temporada. Antes de que terminases por visualizar correctamente aquella silueta, un fuerte hedor a alcoholo\n\
+                inund&oacute tus fosas nasales. </p><br>\
+                <p><center><img src='media/img/qrowjpg.jpg'></center></p><br>\
+                <p><i>Ya era hora de que despertases. Llevas durmiendo como dos d&iacuteas desde que te desplomaste en el despacho del director.\
+                Sinceramente, jam&aacutes hab&iacutea visto algo tan pat&eacutetico. O sea, &iquest;t&uacute quieres ser un futuro cazador, pero no eres capaz de aguantar ni\
+                una noticia como esa? </i></p><br>\
+                <p>Por desgracia, sab&iacuteas que en cierto modo, no le faltaba raz&oacuten, estabas dispuesto a ser un cazador, pero comienzas a recordar como la culpabilidad\
+                y la pesadez de la situaci&oacuten te superaron por completo, haciendo que tu cuerpo y mente se desplomasen. Pero, &iquest;qui&eacuten era aquel\
+                caballero que, si bien era apuesto, arma en diestra y petaca de alcohol en siniestra, se alzaba frente a ti? &iquest;Y por qu&eacute demonios te estaba\
+                faltando al respeto de esa manera?\
+                Por suerte o por desgracia, esa fue una pregunta que no tard&oacute mucho en tener una clara respuesta.</p><br>\
+                <p><i>Vamos, lev&aacutentate y v&iacutestete, bastante has descansado ya. Si pensabas que gracias a tu capacidad para la batalla todo te iba a ser\
+                m&aacutes f&aacutecil, estabas bastante equivocado. Tu entrenamiento de verdad comenzar&aacute ahora, as&iacute que encantado, soy Qrow, tu nuevo entrenador.</i></p>\n\
+                <p><center><img src='media/img/final.png'></center></p>\
+                 <p><center><a href='./ascenso'> &iexcl;SUERTE EN TU CAMINO, CAZADOR DE RANGO MEDIO ! </a></center></p>",
             {
                 enter: function (character, system, from) {
                     system.setQuality("heroesolitario", 1);
                     system.setCharacterText(
-                                "<p>&iexcl;Has ganado el trofeo Heroe Solitario!</p>");
-                    system.setQuality("puntuacion",character.qualities.puntuacion+2);
+                            "<p>&iexcl;Has ganado el trofeo Heroe Solitario!</p>");
+                    system.setQuality("puntuacion", character.qualities.puntuacion + 2);
                 },
                 actions: {
-                
+
                     "ascenso": function (character, system, to) {
                         system.setQuality("cazadormedio", 1);
                         system.setQuality("estudiante", 0);
@@ -867,8 +882,10 @@ Tras un no demasiado largo periodo de tiempo, llegaste a la entrada de otra cuev
                                 "<p>&iexclENHORABUENA!</p>");
                     }
                 },
+
             }
     ),
+
     "opcion_ataque": new undum.SimpleSituation(
             "<h1>Decides Atacar</h1> \
              \
@@ -966,7 +983,7 @@ undum.game.qualities = {
             "M&aacute;s de dos son multitud", {priority: "0008", group: 'trofeos', onDisplay: "&#10003;"}
     ),
     puntuacion: new undum.NumericQuality(
-            "Puntuacion", {priority: "0001", group:'progress'} 
+            "Puntuacion", {priority: "0001", group: 'progress'}
     ),
 };
 // ---------------------------------------------------------------------------
