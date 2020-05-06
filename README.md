@@ -236,6 +236,21 @@ Se ha dividido en 2 capturas por la dimensión de la misma.
 
 ## Conclusiones
 
-### Conclusiones relativas al proyecto
+### Conclusiones relativas al proyecto 
+ 
+Respecto a los puntos de historia se han ido desarrollado paulatinamente sin muchos 
+altibajos en la gráfica hasta el final de proyecto, donde se desarrollan algo más rápido.
 
-### Conclusiones relativas al desarrollo de cada sprint
+### Conclusiones relativas al desarrollo de cada sprint 
+ 
+ #### Sprint 1  
+ Durante este primer sprint los puntos de historia si que tenían algunos picos (día 4,8) coincidiendo y cruzándose varias veces con el ideal. 
+ Finalmente acabando un día antes. 
+  
+ #### Sprint 2 
+ En el sprint 2 el desarrollo de los puntos de historia es algo mas errático, sobretodo a partir del día 6 en adelante, donde baja de golpe, vuelve a subir, luego hay varios dias sin trabajar y finalmente un bajón en los 
+ PH por hacer, acabando así el día 13. 
+  
+ #### Sprint 3 
+ En este último sprint se trabajó poco desde el principio, no desarrollando hasta el dia 4... pero también es cierto que uno de nuestros requisitos tenía un gran peso asociado, por lo que una vez acabado, los PH por hacer bajarían de golpe (en este caso 100 PH) 
+ Y así ya acabando los pocos puntos de historia que quedan hasta antes del día de entrega. 
