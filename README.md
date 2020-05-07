@@ -176,7 +176,7 @@ Se ha utilizado el mismo tablero para el Sprint Backlog y el Sprint Planning ya 
 Se ha dividido en 2 capturas por la dimensión de la misma. 
 ![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/capturas_Metricas_Agil/tabla_Proyecto_1.JPG?raw=true)
  
- ![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/capturas_Metricas_Agil/tabla_Sprint2.JPG?raw=true)
+ ![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/capturas_Metricas_Agil/tabla_Proyecto_2.JPG?raw=true)
   
    
   ## Gráficas Burn-down y Burn-up de los puntos de historia y el valor asociado
