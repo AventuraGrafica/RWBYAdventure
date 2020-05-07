@@ -172,6 +172,7 @@ Se ha utilizado el mismo tablero para el Sprint Backlog y el Sprint Planning ya 
   
    
 # Métricas 
+**Antes de comenzar, queremos indicar que los datos son aproximados y no se corresponden con los de los tableros en trello**
 ## Tabla de datos del proyecto en su totalidad 
 Se ha dividido en 2 capturas por la dimensión de la misma. 
 ![Imagen](https://github.com/RafaelOrtg/Prueba/blob/master/capturas_Metricas_Agil/tabla_Proyecto_1.JPG?raw=true)
@@ -239,7 +240,7 @@ Se ha dividido en 2 capturas por la dimensión de la misma.
 ### Conclusiones relativas al proyecto 
  
 Respecto a los puntos de historia se han ido desarrollado paulatinamente sin muchos 
-altibajos en la gráfica hasta el final de proyecto, donde se desarrollan algo más rápido.
+altibajos en la gráfica hasta el final de proyecto, donde se desarrollan algo más rápido. Por otro lado, queremos indicar que aunque al final del proyecto se puede observar que faltaron bastantes PH por hacer, queremos indicar que son Historias Usuario que tienen un valor muy bajo.
 
 ### Conclusiones relativas al desarrollo de cada sprint 
  
@@ -254,3 +255,6 @@ altibajos en la gráfica hasta el final de proyecto, donde se desarrollan algo m
  #### Sprint 3 
  En este último sprint se trabajó poco desde el principio, no desarrollando hasta el dia 4... pero también es cierto que uno de nuestros requisitos tenía un gran peso asociado, por lo que una vez acabado, los PH por hacer bajarían de golpe (en este caso 100 PH) 
  Y así ya acabando los pocos puntos de historia que quedan hasta antes del día de entrega. 
+
+## Enlace a la hoja de cálculo de Google
+[Enlace a la hoja de cálculo](https://docs.google.com/spreadsheets/d/1TunlhiYv28BD3M-p_a-r2zjxdUjXpomTGsU3GhOSZv4/edit?usp=sharing)
